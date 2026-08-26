@@ -12,7 +12,8 @@
     },
 
     "simulation": {
-        "durationSeconds": 120.0
+        "durationSeconds": 10.0,
+        "fadeoutSeconds": 10.0
     },
 
     "colors": {

@@ -18,12 +18,12 @@ void ParticleSystem::spawn()
         phaseDistribution_(generator_)
     });
 }
-void ParticleSystem::update(float deltaTime)
+void ParticleSystem::update(float deltaTime, bool shouldSpawn)
 {
     spawnRatePS_ = std::min(spawnRatePS_ + spawnRateGrowthPS_ * deltaTime, maxSpawnRatePS_);
     spawnAccumulator_ += deltaTime * spawnRatePS_;
 
-    while (spawnAccumulator_ >= 1.0f)
+    while (shouldSpawn && spawnAccumulator_ >= 1.0f)
     {
         spawn();
         spawnAccumulator_ -= 1.0f;

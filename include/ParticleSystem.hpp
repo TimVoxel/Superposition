@@ -11,7 +11,7 @@ class ParticleSystem
 public:
     ParticleSystem(float simulationDuration, float maxSpawnRatePS);
     void spawn();
-    void update(float deltaTime);
+    void update(float deltaTime, bool shouldSpawn);
     const std::vector<Particle>& particles() const;
 
 private:

@@ -74,9 +74,10 @@ int safeExit(int code, const std::optional<std::string> errorMessage)
     return code;
 }
 
-int runDisplay(Window& window, Renderer& renderer, ParticleSystem& particleSystem)
+int runDisplay(Window& window, Renderer& renderer, ParticleSystem& particleSystem, const Config& config)
 {
-    float previousTime = glfwGetTime();
+    float startTime = glfwGetTime();
+    float previousTime = startTime;
     
     while (!window.shouldClose())
     {
@@ -86,7 +87,7 @@ int runDisplay(Window& window, Renderer& renderer, ParticleSystem& particleSyste
         float deltaTime = currentTime - previousTime;
         previousTime = currentTime;
 
-        particleSystem.update(deltaTime);
+        particleSystem.update(deltaTime, (currentTime - startTime) < config.durationSeconds);
         renderer.render(window.width(), window.height(), particleSystem.particles());
         window.swapBuffers();
     }
@@ -97,7 +98,8 @@ int runRender(Window& window, Renderer& renderer, ParticleSystem& particleSystem
 {
     int fps = config.fps;
     float deltaTime = 1.0f / static_cast<float>(fps);
-    int totalFrames = config.durationSeconds * fps;
+    int spawnParticleFrames =config.durationSeconds * fps; 
+    int totalFrames = spawnParticleFrames + config.fadeoutSeconds * fps;
 
     int width = config.width;
     int height = config.height;
@@ -111,7 +113,7 @@ int runRender(Window& window, Renderer& renderer, ParticleSystem& particleSystem
 
     for (int frame = 0; frame < totalFrames; ++frame)
     {
-        particleSystem.update(deltaTime);
+        particleSystem.update(deltaTime, frame < spawnParticleFrames);
         renderer.render(width, height, particleSystem.particles());
         auto pixels = renderer.capture(width, height);
         video.writeFrame(pixels.data(), pixels.size());
@@ -164,7 +166,7 @@ int main(int argc, char** argv)
     
     if (mode == RunMode::Display)
     {
-        return runDisplay(*window, renderer, particleSystem);
+        return runDisplay(*window, renderer, particleSystem, config.value());
     }
     else
     {

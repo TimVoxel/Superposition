@@ -8,10 +8,11 @@ struct Config
     int width;
     int height;
     int fps;
-    
+
     float pointSize;
     float sizeIncrease;
     float durationSeconds;
+    float fadeoutSeconds;
     float maxSpawnRatePS;
 
     Color clearColor;

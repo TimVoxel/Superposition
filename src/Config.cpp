@@ -21,6 +21,7 @@ Config configFromJson(const nlohmann::json& json)
         .pointSize = json["particles"]["pointSize"].get<float>(),
         .sizeIncrease = json["particles"]["sizeIncrease"].get<float>(),
         .durationSeconds = json["simulation"]["durationSeconds"].get<float>(),
+        .fadeoutSeconds = json["simulation"]["fadeoutSeconds"].get<float>(),
         .maxSpawnRatePS = json["particles"]["maxSpawnRatePS"].get<float>(),
 
         .clearColor = colorFromJson(json["colors"]["clear"]),
