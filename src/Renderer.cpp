@@ -1,6 +1,7 @@
 #include "Renderer.hpp"
 #include <vector>
 #include <Particle.hpp>
+#include <glfw/glfw3.h>
 
 Renderer::Renderer(const Shader& shader, Color pointColor, float pointSizePercentage, float pointSizeIncreasePercentage)
     : shader_(shader),
@@ -21,9 +22,22 @@ Renderer::Renderer(const Shader& shader, Color pointColor, float pointSizePercen
     glEnableVertexAttribArray(1);
 }
 
-bool Renderer::init(GLADloadfunc addrFunc, Color clearColor)
+bool Renderer::init()
 {
-    if (!gladLoadGL(addrFunc))
+    if (!glfwInit())
+    {
+        return false;
+    }
+
+    glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 4);
+    glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
+    glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
+    return true;
+}
+
+bool Renderer::initOpenGL(Color clearColor)
+{
+    if (!gladLoadGL(glfwGetProcAddress))
     {
         return false; 
     }
@@ -83,4 +97,24 @@ void Renderer::render(
     shader_.setFloat("pointSizePercentage", pointSizePercentage_);
     shader_.setFloat("pointSizeIncreasePercentage", pointSizeIncreasePercentage_);
     glDrawArrays(GL_POINTS, 0, static_cast<GLsizei>(particles.size()));
+}
+
+std::vector<unsigned char> Renderer::capture(int width, int height)
+{
+    std::vector<unsigned char> pixels(width * height * 4);
+    glReadPixels(
+        0,
+        0,
+        width,
+        height,
+        GL_RGBA,
+        GL_UNSIGNED_BYTE,
+        pixels.data()
+    );
+    return pixels;
+}
+
+void Renderer::terminate()
+{
+    glfwTerminate();
 }

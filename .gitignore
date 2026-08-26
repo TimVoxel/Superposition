@@ -68,5 +68,6 @@ desktop.ini
 *.temp
 *.log
 
-
 run.bat
+render.bat
+output/

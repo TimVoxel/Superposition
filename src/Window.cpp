@@ -1,23 +1,5 @@
 #include <Window.hpp>
 
-bool Window::init()
-{
-     if (!glfwInit())
-    {
-        return false;
-    }
-
-    glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 4);
-    glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
-    glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
-    return true;
-}
-
-void Window::terminate()
-{
-    glfwTerminate();
-}
-
 std::unique_ptr<Window> Window::create(int width, int height, const std::string& name)
 {
     GLFWwindow* window = glfwCreateWindow(width, height, name.c_str(), nullptr, nullptr);
@@ -36,6 +18,11 @@ int Window::width()
 int Window::height()
 {
     return height_;
+}
+
+void Window::hide()
+{
+    glfwHideWindow(window_);
 }
 
 void Window::update() 

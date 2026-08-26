@@ -5,7 +5,34 @@
 #include <sstream>
 #include <stdexcept>
 
-Shader::Shader(const std::string& vertPath, const std::string& fragPath) 
+Shader::Shader(const GLuint program)
+    : program_(program) {}
+
+Shader::Shader(Shader&& other) noexcept
+    : program_(other.program_)
+{
+    other.program_ = 0;
+}
+
+Shader::~Shader()
+{
+    glDeleteProgram(program_);
+}
+
+Shader& Shader::operator=(Shader&& other) noexcept
+{
+    if (this != &other)
+    {
+        glDeleteProgram(program_);
+
+        program_ = other.program_;
+        other.program_ = 0;
+    }
+
+    return *this;
+}
+
+std::optional<Shader> Shader::tryLoad(const std::string& vertPath, const std::string& fragPath) 
 {
     const std::string vertSrc = readFile(vertPath);
     const std::string fragSrc = readFile(fragPath);
@@ -13,20 +40,16 @@ Shader::Shader(const std::string& vertPath, const std::string& fragPath)
     const GLuint vertCompiled = compile(GL_VERTEX_SHADER, vertSrc);
     const GLuint fragCompiled = compile(GL_FRAGMENT_SHADER, fragSrc);
 
-    program_ = glCreateProgram();
-    glAttachShader(program_, vertCompiled);
-    glAttachShader(program_, fragCompiled);
-    glLinkProgram(program_);
-
-    checkLinkErrors(program_);
-
+    GLuint program = glCreateProgram();
+    glAttachShader(program, vertCompiled);
+    glAttachShader(program, fragCompiled);
+    glLinkProgram(program);
+    
     glDeleteShader(vertCompiled);
     glDeleteShader(fragCompiled);
-}
 
-Shader::~Shader()
-{
-    glDeleteProgram(program_);
+    checkLinkErrors(program);
+    return Shader(program);
 }
 
 void Shader::use() const

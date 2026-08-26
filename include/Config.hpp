@@ -7,7 +7,8 @@ struct Config
 {
     int width;
     int height;
-
+    int fps;
+    
     float pointSize;
     float sizeIncrease;
     float durationSeconds;

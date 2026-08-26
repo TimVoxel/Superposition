@@ -6,11 +6,10 @@
 class Window
 {
 public:
-    static bool init();
-    static void terminate();
     static std::unique_ptr<Window> create(int width, int height, const std::string& name);
     int width();
     int height();
+    void hide();
     void update();
     void swapBuffers();
     void destroy();

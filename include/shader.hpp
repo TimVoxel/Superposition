@@ -2,15 +2,19 @@
 
 #include <glad/gl.h>
 #include <string>
+#include <optional>
 
 class Shader
 {
 public:
-    Shader(const std::string& vertPath, const std::string& fragPath);
+    Shader(const GLuint program);
+    static std::optional<Shader> tryLoad(const std::string& vertPath, const std::string& fragPath);
     ~Shader();
 
     Shader(const Shader&) = delete;
     Shader& operator=(const Shader&) = delete;
+    Shader(Shader&& other) noexcept;
+    Shader& operator=(Shader&& other) noexcept;
 
     void use() const;
     GLuint id() const;

@@ -16,6 +16,7 @@ Config configFromJson(const nlohmann::json& json)
     return {
         .width = json["screen"]["width"].get<int>(),
         .height = json["screen"]["height"].get<int>(),
+        .fps = json["screen"]["fps"].get<int>(),
 
         .pointSize = json["particles"]["pointSize"].get<float>(),
         .sizeIncrease = json["particles"]["sizeIncrease"].get<float>(),
