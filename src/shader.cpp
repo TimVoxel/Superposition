@@ -89,13 +89,25 @@ void Shader::checkLinkErrors(GLuint program)
     }
 }
 
-void Shader::setFloat(const std::string& name, float value)
+void Shader::setInt(const std::string& name, int value) const
+{
+    const GLint location = glGetUniformLocation(program_, name.c_str());
+    glUniform1i(location, value);
+}
+
+void Shader::setFloat(const std::string& name, float value) const
 {
     const GLint location = glGetUniformLocation(program_, name.c_str());
     glUniform1f(location, value);
 }
 
-void Shader::setVec4(const std::string& name, float x, float y, float z, float w)
+void Shader::setVec2(const std::string& name, float x, float y) const
+{
+    const GLint location = glGetUniformLocation(program_, name.c_str());
+    glUniform2f(location, x, y);
+}
+
+void Shader::setVec4(const std::string& name, float x, float y, float z, float w) const
 {
     const GLint location = glGetUniformLocation(program_, name.c_str());
     glUniform4f(location, x, y, z, w);

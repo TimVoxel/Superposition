@@ -18,6 +18,13 @@ FetchContent_Declare(
 )
 FetchContent_MakeAvailable(glfw)
 
+FetchContent_Declare(
+    json
+    GIT_REPOSITORY https://github.com/nlohmann/json.git
+    GIT_TAG v3.12.0
+)
+FetchContent_MakeAvailable(json)
+
 add_library(glad
     external/glad/src/gl.c)
 
@@ -29,7 +36,12 @@ target_include_directories(
 
 add_executable(Superposition
     src/main.cpp
-    src/shader.cpp)
+    src/Shader.cpp
+    src/Renderer.cpp
+    src/Window.cpp
+    src/ParticleSystem.cpp
+    src/WaveFunction.cpp
+    src/Config.cpp)
 
 target_include_directories(
     Superposition
@@ -40,4 +52,5 @@ target_include_directories(
 target_link_libraries(Superposition
     PRIVATE
         glfw
-        glad)
+        glad
+        nlohmann_json::nlohmann_json)

@@ -1,73 +1,69 @@
 #include <glad/gl.h>
-#include <GLFW/glfw3.h>
 #include <iostream>
 #include <shader.hpp>
+#include <math.h>
+#include <particle.hpp>
+#include <random>
+#include <vector>
+#include <Renderer.hpp>
+#include <Window.hpp>
+#include <ParticleSystem.hpp>
+#include <Config.hpp>
+#include <nlohmann/json.hpp>
+#include <fstream>
+
+Config loadConfig()
+{
+    std::ifstream file("config/config.json");
+    if (!file.is_open())
+    {
+        std::cout << "Unable to open config file config/config.json\n";
+        Window::terminate();
+        return {};
+    }
+    nlohmann::json json = nlohmann::json::parse(file);
+    return configFromJson(json);
+}
 
 int main()
 {
-    if (!glfwInit())
+    Config config = loadConfig();
+
+    if (!Window::init())
     {
         return -1;
     }
-
-    glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 4);
-    glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
-    glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
-    GLFWwindow* window = glfwCreateWindow(1280, 720, "Superposition", nullptr, nullptr);
     
+    std::unique_ptr<Window> window = Window::create(config.width, config.height, "Superposition");
     if (window == nullptr)
     {
-        glfwTerminate();
+        Window::terminate();
         return -1;
     }
+    window->makeContextCurrent();
 
-    glfwMakeContextCurrent(window);
-
-    if (!gladLoadGL(glfwGetProcAddress))
+    if (!Renderer::init(glfwGetProcAddress, config.clearColor))
     {
-        glfwDestroyWindow(window);
-        glfwTerminate();
+        Window::terminate();
         return -1;
     }
+    
+    Shader shader("shaders/point.vert", "shaders/singlePoint.frag");
+    Renderer renderer(shader, config.pointColor, config.pointSize, config.sizeIncrease);
+    ParticleSystem particleSystem(config.durationSeconds, config.maxSpawnRatePS);
+    float previousTime = static_cast<float>(glfwGetTime());
 
-    Shader shader("shaders/triangle.vert", "shaders/triangle.frag");
-
-    glClearColor(0.5f, 0.0f, 0.5f, 1.0f);
-
-    float vertices[] = {
-        -0.5f, -0.5f,
-        0.5f, -0.5f,
-        0.0f,  0.5f
-    };
-
-    GLuint VBO;
-
-    glGenBuffers(1, &VBO);
-    glBindBuffer(GL_ARRAY_BUFFER, VBO);
-    glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
-
-    GLuint VAO;
-    glGenVertexArrays(1, &VAO);
-    glBindVertexArray(VAO);
-
-    glVertexAttribPointer(0, 2, GL_FLOAT, GL_FALSE, 2 * sizeof(float), nullptr);
-    glEnableVertexAttribArray(0);
-
-    while (!glfwWindowShouldClose(window))
+    while (!window->shouldClose())
     {
-        glfwPollEvents();
-        glClear(GL_COLOR_BUFFER_BIT);
+        window->update();
+        float currentTime = static_cast<float>(glfwGetTime());
+        float deltaTime = currentTime - previousTime;
+        previousTime = currentTime;
+        particleSystem.update(deltaTime);
 
-        shader.use();
-        shader.setVec4("color", 1.0f, 0.0f, 1.0f, 1.0f);
-        shader.setFloat("time", static_cast<float>(glfwGetTime()));
-        glBindVertexArray(VAO);
-        glDrawArrays(GL_TRIANGLES, 0, 3);
-
-        glfwSwapBuffers(window);
+        renderer.render(window->width(),window->height(), particleSystem.particles());
+        window->swapBuffers();
     }
-
-    glfwDestroyWindow(window);
-    glfwTerminate();
+    Window::terminate();
     return 0;
 }

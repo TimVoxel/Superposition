@@ -1,0 +1,21 @@
+{
+    "screen": {
+        "width": 1920,
+        "height": 1080
+    },
+
+    "particles": {
+        "pointSize": 0.01,
+        "sizeIncrease": 0.10,
+        "maxSpawnRatePS": 500.0
+    },
+
+    "simulation": {
+        "durationSeconds": 30.0
+    },
+
+    "colors": {
+        "clear": [0.25, 0.0, 0.25, 1.0],
+        "point": [1.0, 0.0, 1.0, 1.0]
+    }
+}

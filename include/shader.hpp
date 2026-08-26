@@ -14,8 +14,10 @@ public:
 
     void use() const;
     GLuint id() const;
-    void setFloat(const std::string& name, float value);
-    void setVec4(const std::string& name, float x, float y, float z, float w);
+    void setInt(const std::string& name, int value) const;
+    void setFloat(const std::string& name, float value) const;
+    void setVec2(const std::string& name, float x, float y) const;
+    void setVec4(const std::string& name, float x, float y, float z, float w) const;
 private:
     GLuint program_;
 
