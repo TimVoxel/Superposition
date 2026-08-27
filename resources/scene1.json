@@ -1,0 +1,22 @@
+{
+    "name": "Scene 1 - superposition",
+    "objects": [
+        {
+            "type": "particleSystem",
+            "centerPos": [0.0, 0.0],
+            "durationSeconds": 10.0,
+            "fadeoutSeconds": 10.0,
+            "maxSpawnRatePS": 250.0,
+            "maxParticles": 1000,
+            "lifetime": 5.0,
+            "pointSize": 0.015,
+            "sizeIncrease": 0.075,
+            "amplitude": 0.0003,
+            "frequency": 50.0,
+            "color": [0.2, 0.2, 1.0, 1.0],
+            "waveFunction": {
+                "sigma": 0.2
+            }
+        }
+    ]
+}

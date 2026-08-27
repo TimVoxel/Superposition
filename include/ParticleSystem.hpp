@@ -1,26 +1,30 @@
+#pragma once
+
 #include <Particle.hpp>
 #include <vector>
 #include <random> 
 #include <WaveFunction.hpp>
+#include <ParticleSystemConfig.hpp>
+#include <SceneObject.hpp>
 
-constexpr float amplitude = 0.0005f;
-constexpr float frequency = 50.0f;
-
-class ParticleSystem
+class ParticleSystem : public SceneObject
 {
 public:
-    ParticleSystem(float simulationDuration, float maxSpawnRatePS);
+    explicit ParticleSystem(ParticleSystemConfig config);
     void spawn();
-    void update(float deltaTime, bool shouldSpawn);
+    void spawn(float x, float y, float phase);
+    void start(float currentTime) override;
+    void update(float deltaTime, float currentTime) override;
+    void updateExisting(float deltaTime);
+    void stop();
     const std::vector<Particle>& particles() const;
-
+    const ParticleSystemConfig& config() const;
 private:
     std::vector<Particle> particles_;
-    std::mt19937 generator_{std::random_device{}()};
-    std::uniform_real_distribution<float> phaseDistribution_{0, 1};
-    WaveFunction waveFunction_{0.0f, 0.0f, 0.25f};
+    ParticleSystemConfig config_;
     float spawnAccumulator_ = 0.0f;
     float spawnRatePS_ = 0.0f;
     float spawnRateGrowthPS_ = 3.0f;
-    float maxSpawnRatePS_ = 300.0f;
+    float startTime_ = 0.0f;
+    bool isActive_ = false;
 };

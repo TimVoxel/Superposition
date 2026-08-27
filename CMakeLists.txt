@@ -40,9 +40,16 @@ add_executable(Superposition
     src/Renderer.cpp
     src/Window.cpp
     src/ParticleSystem.cpp
+    src/ParticleSystemConfig.cpp
     src/WaveFunction.cpp
     src/Config.cpp
-    src/VideoWriter.cpp)
+    src/VideoWriter.cpp
+    src/Scene.cpp
+    src/Color.cpp
+    src/Compositor.cpp
+    src/ParticleSystemLink.cpp
+    src/Math.cpp
+    src/CommandLineArgs.cpp)
 
 target_include_directories(
     Superposition

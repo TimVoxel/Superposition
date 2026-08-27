@@ -1,0 +1,6 @@
+struct ParticleInitialState 
+{
+    float x;
+    float y;
+    float phase;
+};

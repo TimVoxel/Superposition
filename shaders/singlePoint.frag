@@ -1,8 +1,8 @@
 #version 430 core
 
-in float particleAge;
+in float pointAge;
+in vec4 pointColor;
 
-uniform vec4 pointColor;
 out vec4 fragColor;
 
 void main()
@@ -12,8 +12,8 @@ void main()
 
     float pointAlpha = exp(-distance * distance * 18.0);
 
-    float fadeIn = smoothstep(0.0, 0.025, particleAge);
-    float fadeOut = 1.0 - particleAge;
+    float fadeIn = smoothstep(0.0, 0.025, pointAge);
+    float fadeOut = 1.0 - pointAge;
 
     float alpha = pointAlpha * fadeIn * fadeOut;
     fragColor = vec4(pointColor.x, pointColor.y, pointColor.z, pointColor.w * alpha);

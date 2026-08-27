@@ -8,15 +8,8 @@ struct Config
     int width;
     int height;
     int fps;
-
-    float pointSize;
-    float sizeIncrease;
-    float durationSeconds;
-    float fadeoutSeconds;
-    float maxSpawnRatePS;
-
+    int durationSeconds;
     Color clearColor;
-    Color pointColor;
 };
 
-Config configFromJson(const nlohmann::json& json);
+void from_json(const nlohmann::json& json, Config& config);

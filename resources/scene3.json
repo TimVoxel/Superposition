@@ -1,0 +1,107 @@
+{
+    "name": "Scene 3 - color wheel",
+    "objects": [
+        {
+            "type": "particleSystemLink",
+            "first": {
+                "type": "particleSystem",
+                "centerPos": [0.75, 0.0],
+                "durationSeconds": 20.0,
+                "fadeoutSeconds": 10.0,
+                "maxSpawnRatePS": 250.0,
+                "maxParticles": 500,
+                "lifetime": 5.0,
+                "pointSize": 0.01,
+                "sizeIncrease": 0.05,
+                "amplitude": 0.0003,
+                "frequency": 50.0,
+                "color": [0.7, 0.2, 1.0, 1.0]
+            },
+            "second": {
+                "type": "particleSystem",
+                "centerPos": [-0.75, 0.0],
+                "durationSeconds": 20.0,
+                "fadeoutSeconds": 10.0,
+                "maxSpawnRatePS": 20.0,
+                "maxParticles": 5050,
+                "lifetime": 5.0,
+                "pointSize": 0.01,
+                "sizeIncrease": 0.05,
+                "amplitude": 0.0003,
+                "frequency": 50.0,
+                "color": [1.0, 1.0, 0.1, 1.0]
+            },
+            "waveFunction": {
+                "sigma": 0.2
+            }
+        },
+        {
+            "type": "particleSystemLink",
+            "first": {
+                "type": "particleSystem",
+                "centerPos": [0.375, 0.65],
+                "durationSeconds": 20.0,
+                "fadeoutSeconds": 10.0,
+                "maxSpawnRatePS": 250.0,
+                "maxParticles": 500,
+                "lifetime": 5.0,
+                "pointSize": 0.01,
+                "sizeIncrease": 0.05,
+                "amplitude": 0.0003,
+                "frequency": 50.0,
+                "color": [0.2, 0.4, 1.0, 1.0]
+            },
+            "second": {
+                "type": "particleSystem",
+                "centerPos": [-0.375, -0.65],
+                "durationSeconds": 20.0,
+                "fadeoutSeconds": 10.0,
+                "maxSpawnRatePS": 20.0,
+                "maxParticles": 5050,
+                "lifetime": 5.0,
+                "pointSize": 0.01,
+                "sizeIncrease": 0.05,
+                "amplitude": 0.0003,
+                "frequency": 50.0,
+                "color": [1.0, 0.4, 0.1, 1.0]
+            },
+            "waveFunction": {
+                "sigma": 0.2
+            }
+        },
+        {
+            "type": "particleSystemLink",
+            "first": {
+                "type": "particleSystem",
+                "centerPos": [-0.375, 0.65],
+                "durationSeconds": 20.0,
+                "fadeoutSeconds": 10.0,
+                "maxSpawnRatePS": 250.0,
+                "maxParticles": 500,
+                "lifetime": 5.0,
+                "pointSize": 0.01,
+                "sizeIncrease": 0.05,
+                "amplitude": 0.0003,
+                "frequency": 50.0,
+                "color": [0.2, 1.0, 0.2, 1.0]
+            },
+            "second": {
+                "type": "particleSystem",
+                "centerPos": [0.375, -0.65],
+                "durationSeconds": 20.0,
+                "fadeoutSeconds": 10.0,
+                "maxSpawnRatePS": 20.0,
+                "maxParticles": 5050,
+                "lifetime": 5.0,
+                "pointSize": 0.01,
+                "sizeIncrease": 0.05,
+                "amplitude": 0.0003,
+                "frequency": 50.0,
+                "color": [1.0, 0.2, 0.2, 1.0]
+            },
+            "waveFunction": {
+                "sigma": 0.2
+            }
+        }
+    ]
+}

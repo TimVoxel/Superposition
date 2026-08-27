@@ -2,18 +2,28 @@
 
 layout (location = 0) in vec2 position;
 layout (location = 1) in float age;
+layout (location = 2) in float size;
+layout (location = 3) in float sizeIncrease;
+layout (location = 4) in vec4 color;
 
 uniform vec2 resolution;
-uniform float pointSizePercentage;
-uniform float pointSizeIncreasePercentage;
-out float particleAge;
+out float pointAge;
+out vec4 pointColor;
 
 void main()
 {
-    gl_Position = vec4(position, 0.0, 1.0);
-    particleAge = age;
-    float startSize = resolution.x * pointSizePercentage;
-    float sizeDiff = resolution.x * pointSizeIncreasePercentage;
+    float aspectRatio = resolution.x / resolution.y;
+    gl_Position = vec4(
+        position.x / aspectRatio,
+        position.y,
+        0.0,
+        1.0
+    );
+    float startSize = resolution.x * size;
+    float sizeDiff = resolution.x * sizeIncrease;
     float progress = smoothstep(0, 1, age);
     gl_PointSize = startSize + progress * sizeDiff;
+    
+    pointAge = age;
+    pointColor = color;
 }

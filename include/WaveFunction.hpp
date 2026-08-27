@@ -1,25 +1,21 @@
 #pragma once
 
 #include <random>
+#include <nlohmann/json.hpp>
 
 class WaveFunction
 {
 public:
-    WaveFunction(
-        float centerX,
-        float centerY,
-        float sigma
-    );
-
-    void setCenter(float x, float y);
-    void setSigma(float sigma);
-
-    std::pair<float, float> sample(std::mt19937& generator) const;
-
-    float probability(float x, float y) const;
+    WaveFunction(float sigma = 1.0f);
+    std::pair<float, float> sample();
+    float phase();
+    void setSigma(float s);
 
 private:
-    float centerX_;
-    float centerY_;
     float sigma_;
+    std::mt19937 generator_{std::random_device{}()};
+    std::normal_distribution<float> distribution_;
+    std::uniform_real_distribution<float> phaseDistribution_{0, 1};
 };
+
+void from_json(const nlohmann::json& json, WaveFunction& waveFunction);

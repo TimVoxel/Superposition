@@ -12,19 +12,21 @@
 #include <nlohmann/json.hpp>
 #include <fstream>
 #include <exception>
-#include <RunMode.hpp>
 #include <VideoWriter.hpp>
 #include <utility>
+#include <Scene.hpp>
+#include <Compositor.hpp>
+#include <CommandLineArgs.hpp>
 
-std::optional<Config> loadConfig()
+std::optional<Config> loadConfig(const std::string& path)
 {
-    std::ifstream file("config/config.json");
+    std::ifstream file(path);
     if (!file.is_open())
     {
         return std::nullopt;
     }
     nlohmann::json json = nlohmann::json::parse(file);
-    return configFromJson(json);
+    return json.get<Config>();
 }
 
 std::optional<Shader> loadShader(const std::string& vertPath, const std::string& fragPath)
@@ -40,28 +42,25 @@ std::optional<Shader> loadShader(const std::string& vertPath, const std::string&
     }
 }
 
-RunMode getRunMode(int argc, char** argv)
+std::optional<Scene> loadScene(const std::string& path)
 {
-    RunMode mode = RunMode::Display;
-
-    for (int i = 1; i < argc; ++i)
+    try
     {
-        std::string argument = argv[i];
+        std::ifstream file(path);
 
-        if (argument == "-r")
+        if (!file.is_open())
         {
-            mode = RunMode::Render;
+            return std::nullopt;
         }
-        else if (argument == "-d")
-        {
-            mode = RunMode::Display;
-        }
-        else 
-        {
-            std::cout << "Unknown option \"" << argument << "\": -r, -d\n";
-        }
+
+        nlohmann::json json = nlohmann::json::parse(file);
+        return Scene::fromJson(json);
     }
-    return mode;
+    catch (const std::exception& e)
+    {
+        std::cerr << "Failed to load scene: " << e.what() << '\n';
+        return std::nullopt;
+    }
 }
 
 int safeExit(int code, const std::optional<std::string> errorMessage)
@@ -74,10 +73,13 @@ int safeExit(int code, const std::optional<std::string> errorMessage)
     return code;
 }
 
-int runDisplay(Window& window, Renderer& renderer, ParticleSystem& particleSystem, const Config& config)
+int runDisplay(Window& window, Renderer& renderer, Scene& scene, const Config& config)
 {
     float startTime = glfwGetTime();
     float previousTime = startTime;
+
+    Compositor compositor(scene);
+    scene.start(startTime);
     
     while (!window.shouldClose())
     {
@@ -87,34 +89,38 @@ int runDisplay(Window& window, Renderer& renderer, ParticleSystem& particleSyste
         float deltaTime = currentTime - previousTime;
         previousTime = currentTime;
 
-        particleSystem.update(deltaTime, (currentTime - startTime) < config.durationSeconds);
-        renderer.render(window.width(), window.height(), particleSystem.particles());
+        scene.update(deltaTime, currentTime);
+        const auto& composed = compositor.compose();
+        renderer.render(window.width(), window.height(), composed);
         window.swapBuffers();
     }
     return safeExit(0, std::nullopt);
 }
 
-int runRender(Window& window, Renderer& renderer, ParticleSystem& particleSystem, const Config& config)
+int runRender(Window& window, Renderer& renderer, Scene& scene, const Config& config)
 {
     int fps = config.fps;
     float deltaTime = 1.0f / static_cast<float>(fps);
-    int spawnParticleFrames =config.durationSeconds * fps; 
-    int totalFrames = spawnParticleFrames + config.fadeoutSeconds * fps;
+    float startTime = static_cast<float>(glfwGetTime());
+    int totalFrames = config.durationSeconds * fps; ;
 
     int width = config.width;
     int height = config.height;
 
+    Compositor compositor(scene);
     VideoWriter video;
-
-    if (!video.open(width, height, fps, "output/video.mp4"))
+    if (!video.open(width, height, fps, "output/" + scene.name() + ".mp4"))
     {
         return safeExit(-1,"Failed to open video writer\n");
     }
 
+    scene.start(startTime);
+
     for (int frame = 0; frame < totalFrames; ++frame)
     {
-        particleSystem.update(deltaTime, frame < spawnParticleFrames);
-        renderer.render(width, height, particleSystem.particles());
+        float currentTime = startTime + frame * deltaTime;
+        scene.update(deltaTime, currentTime);
+        renderer.render(width, height, compositor.compose());
         auto pixels = renderer.capture(width, height);
         video.writeFrame(pixels.data(), pixels.size());
     }
@@ -125,9 +131,9 @@ int runRender(Window& window, Renderer& renderer, ParticleSystem& particleSystem
 
 int main(int argc, char** argv)
 {
-    RunMode mode = getRunMode(argc, argv);
+    CommandLineArgs args = parseCommandLineArgs(argc, argv);
  
-    std::optional<Config> config = loadConfig();
+    std::optional<Config> config = loadConfig("resources/config.json");
     if (!config.has_value())
     {
         return safeExit(-1, "Unable to open config file \"config/config.json\n\"");
@@ -145,7 +151,7 @@ int main(int argc, char** argv)
     }
     window->makeContextCurrent();
 
-    if (mode == RunMode::Render)
+    if (args.mode == RunMode::Render)
     {
         window->hide();
     }
@@ -161,15 +167,19 @@ int main(int argc, char** argv)
         return safeExit(-1, "Unable to start due to the shader not being loaded");
     }
     
-    Renderer renderer(shader.value(), config->pointColor, config->pointSize, config->sizeIncrease);
-    ParticleSystem particleSystem(config->durationSeconds, config->maxSpawnRatePS);
-    
-    if (mode == RunMode::Display)
+    Renderer renderer(shader.value());
+    std::optional<Scene> scene = loadScene(args.scenePath);
+    if (!scene.has_value())
     {
-        return runDisplay(*window, renderer, particleSystem, config.value());
+        return safeExit(-1, "Unable to load scene \"" + args.scenePath + "\"");
+    }
+
+    if (args.mode == RunMode::Display)
+    {
+        return runDisplay(*window, renderer, *scene, config.value());
     }
     else
     {
-        return runRender(*window, renderer, particleSystem, config.value());
+        return runRender(*window, renderer, *scene, config.value());
     }
 }
