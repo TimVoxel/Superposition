@@ -1,13 +1,8 @@
 #include <ParticleSystem.hpp>
 #include <algorithm>
+#include <iostream>
 
-ParticleSystem::ParticleSystem(ParticleSystemConfig config)
-    : config_(config)
-{
-    spawnRateGrowthPS_ = config.maxSpawnRatePS / config.durationSeconds;
-}
-
-void ParticleSystem::start(float currentTime)
+void ParticleSystem::onStart(float currentTime)
 {
     startTime_ = currentTime;
     isActive_ = true;
@@ -35,8 +30,11 @@ void ParticleSystem::spawn()
 
 void ParticleSystem::spawn(float x, float y, float phase)
 {
+    Transform wt = worldTransform();
+    x += wt.position.x;
+    y += wt.position.y;
     particles_.push_back({
-        config_.centerPos.x + x, config_.centerPos.y + y,
+        x, y,
         0.0f,
         config_.lifetime,
         x, y,
@@ -44,7 +42,7 @@ void ParticleSystem::spawn(float x, float y, float phase)
     });
 }
 
-void ParticleSystem::update(float deltaTime, float currentTime)
+void ParticleSystem::onUpdate(float deltaTime, float currentTime)
 {
     if (!isActive_)
     {
@@ -54,6 +52,7 @@ void ParticleSystem::update(float deltaTime, float currentTime)
 
     if (elapsedTime < config_.durationSeconds)
     {
+        float spawnRateGrowthPS_ = config_.maxSpawnRatePS / config_.durationSeconds;
         spawnRatePS_ = std::min(spawnRatePS_ + spawnRateGrowthPS_ * deltaTime, config_.maxSpawnRatePS);
         spawnAccumulator_ += deltaTime * spawnRatePS_;
 
@@ -68,14 +67,16 @@ void ParticleSystem::update(float deltaTime, float currentTime)
 
 void ParticleSystem::updateExisting(float deltaTime)
 {
+    Transform wt = worldTransform();
     float frequency = config_.frequency;
-    float amplitude = config_.amplitude;
+    float amplitudeX = config_.amplitude * wt.scale.x;
+    float amplitudeY = config_.amplitude * wt.scale.y;
 
     for (Particle& particle : particles_)
     {
         particle.age += deltaTime;
-        particle.x = particle.originX + std::sin(particle.age * frequency + particle.age) * amplitude;
-        particle.y = particle.originY + std::cos(particle.age * frequency * 0.8f + particle.age) * amplitude;
+        particle.x = particle.originX + std::sin(particle.age * frequency + particle.age) * amplitudeX;
+        particle.y = particle.originY + std::cos(particle.age * frequency * 0.8f + particle.age) * amplitudeY;
     }
     
     particles_.erase(
@@ -97,3 +98,8 @@ const std::vector<Particle>& ParticleSystem::particles() const
 }
 
 const ParticleSystemConfig& ParticleSystem::config() const { return config_; }
+
+std::unique_ptr<ParticleSystem> ParticleSystem::fromJson(const nlohmann::json& json)
+{
+    return std::make_unique<ParticleSystem>(json.at("config").get<ParticleSystemConfig>());
+}

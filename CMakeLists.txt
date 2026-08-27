@@ -49,7 +49,9 @@ add_executable(Superposition
     src/Compositor.cpp
     src/ParticleSystemLink.cpp
     src/Math.cpp
-    src/CommandLineArgs.cpp)
+    src/CommandLineArgs.cpp
+    src/Transform.cpp
+    src/SceneObject.cpp)
 
 target_include_directories(
     Superposition

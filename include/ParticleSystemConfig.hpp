@@ -8,7 +8,6 @@
 
 struct ParticleSystemConfig
 {
-    Vec2f centerPos;
     float durationSeconds;
     float fadeoutSeconds;
     float maxSpawnRatePS;

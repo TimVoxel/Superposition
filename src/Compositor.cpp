@@ -16,7 +16,7 @@ Compositor::Compositor(const Scene& scene)
         }
         else if (const ParticleSystemLink* l = dynamic_cast<const ParticleSystemLink*>(obj.get()))
         {
-            size += l->first().config().maxParticles + l->second().config().maxParticles;
+            size += l->first()->config().maxParticles + l->second()->config().maxParticles;
         }
         else
         {
@@ -38,8 +38,8 @@ const std::vector<RenderPoint>& Compositor::compose()
         }
         else if (const ParticleSystemLink* l = dynamic_cast<const ParticleSystemLink*>(obj.get()))
         {
-            composeParticleSystem(l->first());
-            composeParticleSystem(l->second());
+            composeParticleSystem(*l->first());
+            composeParticleSystem(*l->second());
         }
         else
         {
@@ -53,15 +53,21 @@ void Compositor::composeParticleSystem(const ParticleSystem& system)
 {
     const auto& particles = system.particles();
     const auto& config = system.config();
+    const auto& transform = system.worldTransform();
+
+    float size = config.pointSize * transform.scale.x;
+    float sizeIncrease = config.sizeIncrease * transform.scale.x;
+    float tx = transform.position.x;
+    float ty = transform.position.y;
 
     for (const Particle& particle : particles)
     {
         points_.push_back({
-            .x = particle.x,
-            .y = particle.y,
+            .x = tx + particle.x * transform.scale.x,
+            .y = ty + particle.y * transform.scale.y,
             .progress = particle.age / particle.lifetime,
-            .pointSize = config.pointSize,
-            .sizeIncrease = config.sizeIncrease,
+            .pointSize = size,
+            .sizeIncrease = sizeIncrease,
             .r = config.color.r,
             .g = config.color.g,
             .b = config.color.b,

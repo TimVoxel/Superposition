@@ -5,6 +5,7 @@
 #include <ParticleSystemLink.hpp>
 #include <WaveFunction.hpp>
 #include <stdexcept>
+#include <Transform.hpp>
 
 Scene::Scene(const std::string& name, std::vector<std::unique_ptr<SceneObject>> objects)
     : objects_(std::move(objects)), name_(std::move(name)) 
@@ -39,31 +40,7 @@ Scene Scene::fromJson(const nlohmann::json& json)
 
     for (const auto& objectJson : json.at("objects"))
     {
-        const std::string type = objectJson.at("type");
-
-        if (type == "particleSystem")
-        {
-            const auto config = objectJson.get<ParticleSystemConfig>();
-            objects.push_back(std::make_unique<ParticleSystem>(config));
-        }
-        else if (type == "particleSystemLink")
-        {
-            const auto firstConfig = objectJson.at("first").get<ParticleSystemConfig>();
-            const auto secondConfig = objectJson.at("second").get<ParticleSystemConfig>();
-            const auto waveFunction = objectJson.at("waveFunction").get<WaveFunction>();
-
-            objects.push_back(
-                std::make_unique<ParticleSystemLink>(
-                    ParticleSystem(firstConfig),
-                    ParticleSystem(secondConfig),
-                    waveFunction
-                )
-            );
-        }
-        else
-        {
-            throw std::runtime_error("Unknown scene object type: " + type);
-        }
+        objects.push_back(SceneObject::fromJson(objectJson));
     }
     return Scene(name, std::move(objects));
 }
