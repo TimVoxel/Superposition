@@ -1,11 +1,5 @@
 #include <Scene.hpp>
 #include <utility>
-#include <Math.hpp>
-#include <ParticleSystem.hpp>
-#include <ParticleSystemLink.hpp>
-#include <WaveFunction.hpp>
-#include <stdexcept>
-#include <Transform.hpp>
 
 Scene::Scene(const std::string& name, std::vector<std::unique_ptr<SceneObject>> objects)
     : objects_(std::move(objects)), name_(std::move(name)) 

@@ -1,32 +1,14 @@
-#include <WaveFunction.hpp>
-#include <cmath>
-#include <utility>
+#include <stdexcept>
+#include <wavefunction/GuassianWaveFunction.hpp>
 
-WaveFunction::WaveFunction(float sigma)
+std::unique_ptr<WaveFunction> WaveFunction::fromJson(const nlohmann::json& json)
 {
-    setSigma(sigma); 
-}
+    const auto type = json["type"].get<std::string>();
 
-std::pair<float, float> WaveFunction::sample()
-{
-    return {
-        distribution_(generator_),
-        distribution_(generator_)
-    };
-}
+    if (type == "gaussian")
+        return std::make_unique<GaussianWaveFunction>(
+            json["sigma"].get<float>()
+        );
 
-float WaveFunction::phase()
-{
-    return phaseDistribution_(generator_);
-}
-
-void WaveFunction::setSigma(float sigma)
-{
-    sigma_ = sigma;
-    distribution_ = std::normal_distribution<float>(0.0f, sigma_);
-}
-
-void from_json(const nlohmann::json& json, WaveFunction& waveFunction)
-{
-    waveFunction.setSigma(json["sigma"].get<float>());
+    throw std::runtime_error("Unknown wave function type: " + type);
 }

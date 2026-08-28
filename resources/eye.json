@@ -1,0 +1,136 @@
+{
+    "name": "Scene 6 - eye",
+    "objects": [
+        {
+            "type": "container",
+            "transform": {
+                "pos": [0.0, 0.0],
+                "scale": [1.0, 1.0]
+            },
+            "children": [
+                {
+                    "type": "particleSystem",
+                    "transform": {
+                        "pos": [0.0, 0.0],
+                        "scale": [1.5, 0.8]
+                    },
+                    "config": {
+                        "durationSeconds": 50.0,
+                        "fadeoutSeconds": 0.0,
+                        "maxSpawnRatePS": 250.0,
+                        "maxParticles": 1000,
+                        "lifetime": 5.0,
+                        "pointSize": 0.035,
+                        "sizeIncrease": 0.0,
+                        "amplitude": 0.0,
+                        "frequency": 0.0,
+                        "color": [1.0, 1.0, 1.0, 1.0]
+                    },
+                    "waveFunction": {
+                        "type": "gaussian",
+                        "sigma": 0.25
+                    }
+                },
+                {
+                    "type": "particleSystem",
+                    "transform": {
+                        "pos": [0.0, 0.0],
+                        "scale": [1.0, 1.0]
+                    },
+                    "animations": [
+                        {
+                            "type": "sin",
+                            "target": "position",
+                            "amplitudeX": 0.15,
+                            "amplitudeY": 0.0,
+                            "frequency": 1.5,
+                            "phase": 0.0
+                        }
+                    ],
+                    "config": {
+                        "durationSeconds": 50.0,
+                        "fadeoutSeconds": 0.0,
+                        "maxSpawnRatePS": 250.0,
+                        "maxParticles": 500,
+                        "lifetime": 5.0,
+                        "pointSize": 0.05,
+                        "sizeIncrease": 0.0,
+                        "amplitude": 0.0,
+                        "frequency": 0.0,
+                        "color": [0.0, 0.0, 0.0, 1.0]
+                    },
+                    "waveFunction": {
+                        "type": "gaussian",
+                        "sigma": 0.15
+                    }
+                },
+                {
+                    "type": "particleSystem",
+                    "transform": {
+                        "pos": [-0.1, 0.2],
+                        "scale": [1.0, 1.0]
+                    },
+                    "animations": [
+                        {
+                            "type": "sin",
+                            "target": "position",
+                            "amplitudeX": 0.15,
+                            "amplitudeY": 0.0,
+                            "frequency": 1.5,
+                            "phase": 0.0
+                        }
+                    ],
+                    "config": {
+                        "durationSeconds": 50.0,
+                        "fadeoutSeconds": 0.0,
+                        "maxSpawnRatePS": 250.0,
+                        "maxParticles": 250,
+                        "lifetime": 5.0,
+                        "pointSize": 0.01,
+                        "sizeIncrease": 0.0,
+                        "amplitude": 0.0,
+                        "frequency": 0.0,
+                        "color": [1.0, 1.0, 1.0, 1.0]
+                    },
+                    "waveFunction": {
+                        "type": "gaussian",
+                        "sigma": 0.02
+                    }
+                },
+                {
+                    "type": "particleSystem",
+                    "transform": {
+                        "pos": [0.15, -0.15],
+                        "scale": [1.0, 1.0]
+                    },
+                    "animations": [
+                        {
+                            "type": "sin",
+                            "target": "position",
+                            "amplitudeX": 0.15,
+                            "amplitudeY": 0.0,
+                            "frequency": 1.5,
+                            "phase": 0.0
+                        }
+                    ],
+                    "config": {
+                        "durationSeconds": 50.0,
+                        "fadeoutSeconds": 0.0,
+                        "maxSpawnRatePS": 250.0,
+                        "maxParticles": 100,
+                        "lifetime": 5.0,
+                        "pointSize": 0.01,
+                        "sizeIncrease": 0.0,
+                        "amplitude": 0.0,
+                        "frequency": 0.0,
+                        "color": [1.0, 1.0, 1.0, 1.0]
+                    },
+                    "waveFunction": {
+                        "type": "gaussian",
+                        "sigma": 0.01
+                    }
+                }
+            ]
+        }
+    ]
+}

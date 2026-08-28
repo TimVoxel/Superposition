@@ -26,14 +26,30 @@ bool VideoWriter::open(int width, int height, int fps, const std::string& filena
     return true;
 }
 
-bool VideoWriter::writeFrame(const unsigned char* pixels, size_t size)
+bool VideoWriter::writeFrame(const unsigned char* pixels, int width, int height)
 {
     if (pipe_ == nullptr)
     {
         return false;
     }
 
-    return fwrite(pixels, 1, size, pipe_) == size;
+    const size_t rowSize = static_cast<size_t>(width) * 4;
+    const size_t frameSize = rowSize * static_cast<size_t>(height);
+
+    if (frameSize != buffer_.size())
+    {
+        buffer_.resize(frameSize);
+    }
+
+    for (int y = 0; y < height; ++y)
+    {
+        std::memcpy(
+            buffer_.data() + static_cast<size_t>(y) * rowSize,
+            pixels + static_cast<size_t>(height - 1 - y) * rowSize,
+            rowSize
+        );
+    }
+    return fwrite(buffer_.data(), 1, frameSize, pipe_) == frameSize;
 }
 
 void VideoWriter::close()

@@ -1,10 +1,9 @@
 #pragma once
 
 #include <ParticleSystem.hpp>
-#include <WaveFunction.hpp>
+#include <wavefunction/WaveFunction.hpp>
 #include <SceneObject.hpp>
 #include <nlohmann/json.hpp>
-#include <iostream>
 
 class ParticleSystemLink : public SceneObject
 {
@@ -13,7 +12,7 @@ public:
     ParticleSystemLink(
         std::unique_ptr<ParticleSystem> first,
         std::unique_ptr<ParticleSystem> second, 
-        WaveFunction waveFunction,
+        std::unique_ptr<WaveFunction> waveFunction,
         Transform transform = { {0.0f, 0.0f}, {1.0f, 1.0f} }, SceneObject* parent = nullptr)
             : SceneObject(transform, parent), waveFunction_(std::move(waveFunction))
     {
@@ -21,18 +20,6 @@ public:
         second_ = second.get();
         addChild(std::move(first));
         addChild(std::move(second));
-
-        std::cout << "Link local: "
-          << transform_.position.x << ", "
-          << transform_.position.y << '\n';
-
-        std::cout << "Link world: "
-                << worldTransform().position.x << ", "
-                << worldTransform().position.y << '\n';
-
-        std::cout << "First world: "
-                << first_->worldTransform().position.x << ", "
-                << first_->worldTransform().position.y << '\n';
     }
 
     void start(float currentTime) override;
@@ -46,7 +33,7 @@ public:
 private:
     ParticleSystem* first_;
     ParticleSystem* second_;
-    WaveFunction waveFunction_;
+    std::unique_ptr<WaveFunction> waveFunction_;
 
     float startTime_ = 0.0f;
     bool isActive_ = false;

@@ -1,5 +1,6 @@
 #pragma once
 
+#include <animation/Animation.hpp>
 #include <Transform.hpp>
 #include <memory>
 
@@ -27,8 +28,20 @@ public:
         child->setParent(this);
         children_.push_back(std::move(child));
     }
+
+    const std::vector<std::unique_ptr<Animation>>& animations() const
+    {
+        return animations_;
+    }
     
     static std::unique_ptr<SceneObject> fromJson(const nlohmann::json& json);
+
+    void addAnimation(std::unique_ptr<Animation> animation)
+    {
+        animations_.push_back(std::move(animation));
+    }
+
+    void applyAnimation(float currentTime);
 
 protected:
     explicit SceneObject(
@@ -42,6 +55,8 @@ protected:
     virtual void onUpdate(float deltaTime, float currentTime) = 0;
 
     Transform transform_;
+    Transform animatedTransform_;
     SceneObject* parent_;
     std::vector<std::unique_ptr<SceneObject>> children_;
+    std::vector<std::unique_ptr<Animation>> animations_;
 };

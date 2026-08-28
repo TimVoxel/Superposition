@@ -46,6 +46,7 @@
                 }
             },
             "waveFunction": {
+                "type": "gaussian",
                 "sigma": 0.2
             }
         },
@@ -94,6 +95,7 @@
                 }
             },
             "waveFunction": {
+                "type": "gaussian",
                 "sigma": 0.2
             }
         },
@@ -142,6 +144,7 @@
                 }
             },
             "waveFunction": {
+                "type": "gaussian",
                 "sigma": 0.2
             }
         }

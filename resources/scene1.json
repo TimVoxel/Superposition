@@ -17,10 +17,11 @@
                 "sizeIncrease": 0.075,
                 "amplitude": 0.0003,
                 "frequency": 50.0,
-                "color": [0.2, 0.2, 1.0, 1.0],
-                "waveFunction": {
-                    "sigma": 0.2
-                }
+                "color": [0.2, 0.2, 1.0, 1.0]
+            },
+            "waveFunction": {
+                "type": "gaussian",
+                "sigma": 0.2
             }
         }
     ]

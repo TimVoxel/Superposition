@@ -3,7 +3,7 @@
 #include <Color.hpp>
 #include <nlohmann/json.hpp>
 #include <Math.hpp>
-#include <WaveFunction.hpp>
+#include <wavefunction/WaveFunction.hpp>
 #include <optional>
 
 struct ParticleSystemConfig
@@ -18,7 +18,6 @@ struct ParticleSystemConfig
     float amplitude;
     float frequency;
     Color color;
-    std::optional<WaveFunction> waveFunction;
 };
 
 void from_json(const nlohmann::json& json, ParticleSystemConfig& config);

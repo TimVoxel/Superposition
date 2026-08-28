@@ -14,8 +14,4 @@ void from_json(const nlohmann::json& json, ParticleSystemConfig& config)
     json.at("amplitude").get_to(config.amplitude);
     json.at("frequency").get_to(config.frequency);
     json.at("color").get_to(config.color);
-
-    config.waveFunction = json.contains("waveFunction") 
-        ? std::optional(json.at("waveFunction").get<WaveFunction>())
-        : std::nullopt;
 };

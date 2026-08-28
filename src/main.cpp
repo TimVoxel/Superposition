@@ -122,7 +122,7 @@ int runRender(Window& window, Renderer& renderer, Scene& scene, const Config& co
         scene.update(deltaTime, currentTime);
         renderer.render(width, height, compositor.compose());
         auto pixels = renderer.capture(width, height);
-        video.writeFrame(pixels.data(), pixels.size());
+        video.writeFrame(pixels.data(), width, height);
     }
 
     video.close();

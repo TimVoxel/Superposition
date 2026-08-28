@@ -51,7 +51,8 @@ add_executable(Superposition
     src/Math.cpp
     src/CommandLineArgs.cpp
     src/Transform.cpp
-    src/SceneObject.cpp)
+    src/SceneObject.cpp
+    src/animation/Animation.cpp)
 
 target_include_directories(
     Superposition

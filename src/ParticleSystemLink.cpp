@@ -16,6 +16,7 @@ void ParticleSystemLink::start(float currentTime)
 
 void ParticleSystemLink::update(float deltaTime, float currentTime)
 {
+    applyAnimation(currentTime);
     onUpdate(deltaTime, currentTime);
 
     for (std::unique_ptr<SceneObject>& child : children_)
@@ -33,7 +34,7 @@ void ParticleSystemLink::onStart(float currentTime)
     startTime_ = currentTime;
     isActive_ = true;
     spawnRatePS_ = 0.0f;
-    spawnAccumulator_ = 0.0f;
+    spawnAccumulator_ = 1.0f;
     first_->start(currentTime);
     second_->start(currentTime);
 }
@@ -48,6 +49,9 @@ void ParticleSystemLink::onUpdate(float deltaTime, float currentTime)
     const float elapsedTime = currentTime - startTime_;
     const ParticleSystemConfig& firstConfig = first_->config();
 
+    first_->applyAnimation(currentTime);
+    second_->applyAnimation(currentTime);
+
     if (elapsedTime < firstConfig.durationSeconds)
     {
         spawnRatePS_ = std::min(
@@ -60,10 +64,9 @@ void ParticleSystemLink::onUpdate(float deltaTime, float currentTime)
 
         while (spawnAccumulator_ >= 1.0f)
         {
-            auto [x, y] = waveFunction_.sample();
-            float phase = waveFunction_.phase();
-            first_->spawn(x, y, phase);
-            second_->spawn(-x, -y, 1 - phase);
+            auto [x, y] = waveFunction_->sample(currentTime);
+            first_->spawn(x, y);
+            second_->spawn(-x, -y);
             spawnAccumulator_ -= 1.0f;
         }
     }
@@ -89,15 +92,10 @@ std::unique_ptr<ParticleSystemLink> ParticleSystemLink::fromJson(
         throw std::runtime_error("ParticleSystemLink children first and second must be ParticleSystems");
     }
 
-    WaveFunction waveFunction = json.at("waveFunction").get<WaveFunction>();
-    Transform transform = json.at("transform").get<Transform>();
-
     auto link = std::make_unique<ParticleSystemLink>(
         std::unique_ptr<ParticleSystem>(static_cast<ParticleSystem*>(firstObject.release())),
         std::unique_ptr<ParticleSystem>(static_cast<ParticleSystem*>(secondObject.release())),
-        waveFunction,
-        transform
-    );
+        WaveFunction::fromJson(json.at("waveFunction")));
 
     return link;
 }

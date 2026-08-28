@@ -1,0 +1,162 @@
+{
+    "name": "Scene 5 - classical points",
+    "objects": [
+        {
+            "type": "container",
+            "transform": {
+                "pos": [0.0, 0.0],
+                "scale": [1.0, 1.0]
+            },
+            "animations": [
+                {
+                    "type": "sin",
+                    "target": "position",
+                    "amplitudeX": 0.15,
+                    "amplitudeY": 0.10,
+                    "frequency": 0.5,
+                    "phase": 0.0
+                }
+            ],
+            "children": [
+                {
+                    "type": "particleSystem",
+                    "transform": {
+                        "pos": [0.0, 0.5],
+                        "scale": [1.0, 1.0]
+                    },
+                    "config": {
+                        "durationSeconds": 2147483647.0,
+                        "fadeoutSeconds": 0.0,
+                        "maxSpawnRatePS": 1.0,
+                        "maxParticles": 1,
+                        "lifetime": 100.0,
+                        "pointSize": 0.035,
+                        "sizeIncrease": 0.0,
+                        "amplitude": 0.0,
+                        "frequency": 0.0,
+                        "color": [1.0, 1.0, 1.0, 1.0]
+                    },
+                    "waveFunction": {
+                        "type": "gaussian",
+                        "sigma": 0.001
+                    }
+                },
+                {
+                    "type": "particleSystem",
+                    "transform": {
+                        "pos": [0.433, 0.25],
+                        "scale": [1.0, 1.0]
+                    },
+                    "config": {
+                        "durationSeconds": 2147483647.0,
+                        "fadeoutSeconds": 0.0,
+                        "maxSpawnRatePS": 1.0,
+                        "maxParticles": 1,
+                        "lifetime": 100.0,
+                        "pointSize": 0.035,
+                        "sizeIncrease": 0.0,
+                        "amplitude": 0.0,
+                        "frequency": 0.0,
+                        "color": [1.0, 1.0, 1.0, 1.0]
+                    },
+                    "waveFunction": {
+                        "type": "gaussian",
+                        "sigma": 0.001
+                    }
+                },
+                {
+                    "type": "particleSystem",
+                    "transform": {
+                        "pos": [0.433, -0.25],
+                        "scale": [1.0, 1.0]
+                    },
+                    "config": {
+                        "durationSeconds": 2147483647.0,
+                        "fadeoutSeconds": 0.0,
+                        "maxSpawnRatePS": 1.0,
+                        "maxParticles": 1,
+                        "lifetime": 100.0,
+                        "pointSize": 0.035,
+                        "sizeIncrease": 0.0,
+                        "amplitude": 0.0,
+                        "frequency": 0.0,
+                        "color": [1.0, 1.0, 1.0, 1.0]
+                    },
+                    "waveFunction": {
+                        "type": "gaussian",
+                        "sigma": 0.001
+                    }
+                },
+                {
+                    "type": "particleSystem",
+                    "transform": {
+                        "pos": [0.0, -0.5],
+                        "scale": [1.0, 1.0]
+                    },
+                    "config": {
+                        "durationSeconds": 2147483647.0,
+                        "fadeoutSeconds": 0.0,
+                        "maxSpawnRatePS": 1.0,
+                        "maxParticles": 1,
+                        "lifetime": 100.0,
+                        "pointSize": 0.035,
+                        "sizeIncrease": 0.0,
+                        "amplitude": 0.0,
+                        "frequency": 0.0,
+                        "color": [1.0, 1.0, 1.0, 1.0]
+                    },
+                    "waveFunction": {
+                        "type": "gaussian",
+                        "sigma": 0.001
+                    }
+                },
+                {
+                    "type": "particleSystem",
+                    "transform": {
+                        "pos": [-0.433, -0.25],
+                        "scale": [1.0, 1.0]
+                    },
+                    "config": {
+                        "durationSeconds": 2147483647.0,
+                        "fadeoutSeconds": 0.0,
+                        "maxSpawnRatePS": 1.0,
+                        "maxParticles": 1,
+                        "lifetime": 100.0,
+                        "pointSize": 0.035,
+                        "sizeIncrease": 0.0,
+                        "amplitude": 0.0,
+                        "frequency": 0.0,
+                        "color": [1.0, 1.0, 1.0, 1.0]
+                    },
+                    "waveFunction": {
+                        "type": "gaussian",
+                        "sigma": 0.001
+                    }
+                },
+                {
+                    "type": "particleSystem",
+                    "transform": {
+                        "pos": [-0.433, 0.25],
+                        "scale": [1.0, 1.0]
+                    },
+                    "config": {
+                        "durationSeconds": 2147483647.0,
+                        "fadeoutSeconds": 0.0,
+                        "maxSpawnRatePS": 1.0,
+                        "maxParticles": 1,
+                        "lifetime": 100.0,
+                        "pointSize": 0.035,
+                        "sizeIncrease": 0.0,
+                        "amplitude": 0.0,
+                        "frequency": 0.0,
+                        "color": [1.0, 1.0, 1.0, 1.0]
+                    },
+                    "waveFunction": {
+                        "type": "gaussian",
+                        "sigma": 0.001
+                    }
+                }
+            ]
+        }
+    ]
+}

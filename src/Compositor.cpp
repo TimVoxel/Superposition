@@ -3,26 +3,30 @@
 #include <SceneObject.hpp>
 #include <ParticleSystemLink.hpp>
 #include <typeinfo>
+#include <Container.hpp>
+#include <iostream>
 
-Compositor::Compositor(const Scene& scene)
-    : scene_(scene)
+size_t getSizeOf(const SceneObject& obj)
 {
     size_t size = 0;
-    for (const std::unique_ptr<SceneObject>& obj : scene_.objects())
+    if (const auto* ps = dynamic_cast<const ParticleSystem*>(&obj))
     {
-        if (const ParticleSystem* ps = dynamic_cast<const ParticleSystem*>(obj.get()))
-        {
-            size += ps->config().maxParticles;
-        }
-        else if (const ParticleSystemLink* l = dynamic_cast<const ParticleSystemLink*>(obj.get()))
-        {
-            size += l->first()->config().maxParticles + l->second()->config().maxParticles;
-        }
-        else
-        {
-            throw std::runtime_error(std::string("Unable to find the composition size of object of type: ") + typeid(*obj).name());
-        }
-    }   
+        size += ps->config().maxParticles;
+    }
+    for (const auto& child : obj.children())
+    {
+        size += getSizeOf(*child);
+    }
+    return size;
+}
+
+Compositor::Compositor(const Scene& scene) : scene_(scene)
+{
+    size_t size = 0;
+    for (const auto& obj : scene_.objects())
+    {
+        size += getSizeOf(*obj);
+    }
     points_.reserve(size);
 }
 
@@ -32,21 +36,21 @@ const std::vector<RenderPoint>& Compositor::compose()
 
     for (const std::unique_ptr<SceneObject>& obj : scene_.objects())
     {
-        if (const ParticleSystem* ps = dynamic_cast<const ParticleSystem*>(obj.get()))
-        {
-            composeParticleSystem(*ps);
-        }
-        else if (const ParticleSystemLink* l = dynamic_cast<const ParticleSystemLink*>(obj.get()))
-        {
-            composeParticleSystem(*l->first());
-            composeParticleSystem(*l->second());
-        }
-        else
-        {
-            throw std::runtime_error(std::string("Unable to compose scene object of type: ")+ typeid(*obj).name());
-        }
+        composeObject(*obj);
     }
     return points_;
+}
+
+void Compositor::composeObject(const SceneObject& obj)
+{
+    if (auto* ps = dynamic_cast<const ParticleSystem*>(&obj))
+    {
+        composeParticleSystem(*ps);
+    }
+    for (const auto& child : obj.children())
+    {
+        composeObject(*child);
+    }
 }
 
 void Compositor::composeParticleSystem(const ParticleSystem& system)

@@ -13,8 +13,14 @@ void SceneObject::start(float currentTime)
     }
 }
 
+void SceneObject::applyAnimation(float currentTime)
+{
+    animatedTransform_ = Animator::animate(transform_, animations_, currentTime);
+}
+
 void SceneObject::update(float deltaTime, float currentTime)
 {
+    applyAnimation(currentTime);
     onUpdate(deltaTime, currentTime);
 
     for (std::unique_ptr<SceneObject>& child : children_)
@@ -51,6 +57,11 @@ std::unique_ptr<SceneObject> SceneObject::fromJson(const nlohmann::json& json)
     {
         object->addChild(SceneObject::fromJson(childJson));
     }
+    for (const auto& animationJson :
+        json.value("animations", nlohmann::json::array()))
+    {
+        object->addAnimation(Animation::fromJson(animationJson));
+    }
     return object;
 }
 
@@ -58,20 +69,20 @@ const Transform SceneObject::worldTransform() const
 {
     if (parent_ == nullptr)
     {
-        return transform_;
+        return animatedTransform_;
     }
 
     const Transform parentTransform = parent_->worldTransform();
 
     return {
         .position = {
-            parentTransform.position.x + transform_.position.x * parentTransform.scale.x,
-            parentTransform.position.y + transform_.position.y * parentTransform.scale.y
+            parentTransform.position.x + animatedTransform_.position.x * parentTransform.scale.x,
+            parentTransform.position.y + animatedTransform_.position.y * parentTransform.scale.y
         },
 
         .scale = {
-            parentTransform.scale.x * transform_.scale.x,
-            parentTransform.scale.y * transform_.scale.y
+            parentTransform.scale.x * animatedTransform_.scale.x,
+            parentTransform.scale.y * animatedTransform_.scale.y
         }
     };
 }

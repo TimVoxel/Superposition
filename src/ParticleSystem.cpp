@@ -7,7 +7,7 @@ void ParticleSystem::onStart(float currentTime)
     startTime_ = currentTime;
     isActive_ = true;
     spawnRatePS_ = 0.0f;
-    spawnAccumulator_ = 0.0f;
+    spawnAccumulator_ = 1.0f;
 }
 
 void ParticleSystem::stop()
@@ -15,30 +15,33 @@ void ParticleSystem::stop()
     isActive_ = false;
 }
 
-void ParticleSystem::spawn()
+void ParticleSystem::spawn(float time)
 {
-    if (!config_.waveFunction.has_value())
+    if (particles_.size() >= config_.maxParticles)
+    {
+        return;
+    }
+    if (waveFunction_ == nullptr)
     {
         throw std::runtime_error("Cannot randomly spawn particles inside a particle system without a wave function");
         return;
     }
-    WaveFunction& waveFunction = config_.waveFunction.value();
-    auto [x, y] = waveFunction.sample();
-    float phase = waveFunction.phase(); 
-    spawn(x, y, phase);
+    auto [x, y] = waveFunction_->sample(time);
+    spawn(x, y);
 }
 
-void ParticleSystem::spawn(float x, float y, float phase)
+void ParticleSystem::spawn(float x, float y)
 {
-    Transform wt = worldTransform();
-    x += wt.position.x;
-    y += wt.position.y;
+    if (particles_.size() >= config_.maxParticles)
+    {
+        return;
+    }
     particles_.push_back({
         x, y,
         0.0f,
         config_.lifetime,
         x, y,
-        phase
+        phaseDistribution_(generator_)
     });
 }
 
@@ -58,7 +61,7 @@ void ParticleSystem::onUpdate(float deltaTime, float currentTime)
 
         while (spawnAccumulator_ >= 1.0f)
         {
-            spawn();
+            spawn(currentTime);
             spawnAccumulator_ -= 1.0f;
         }
     }
@@ -101,5 +104,12 @@ const ParticleSystemConfig& ParticleSystem::config() const { return config_; }
 
 std::unique_ptr<ParticleSystem> ParticleSystem::fromJson(const nlohmann::json& json)
 {
-    return std::make_unique<ParticleSystem>(json.at("config").get<ParticleSystemConfig>());
+    ParticleSystemConfig config = json.at("config").get<ParticleSystemConfig>();
+    std::unique_ptr<WaveFunction> waveFunction;
+
+    if (json.contains("waveFunction"))
+    {
+        waveFunction = WaveFunction::fromJson(json.at("waveFunction"));
+    }
+    return std::make_unique<ParticleSystem>(std::move(waveFunction), config);
 }
