@@ -26,7 +26,7 @@ void ParticleSystem::spawn(float time)
         throw std::runtime_error("Cannot randomly spawn particles inside a particle system without a wave function");
         return;
     }
-    auto [x, y] = waveFunction_->sample(time);
+    auto [x, y] = waveFunction_->sample();
     spawn(x, y);
 }
 
@@ -52,6 +52,11 @@ void ParticleSystem::onUpdate(float deltaTime, float currentTime)
         return;
     }
     float elapsedTime = currentTime - startTime_;
+    
+    if (waveFunction_ != nullptr)
+    {
+        waveFunction_->update(deltaTime);
+    }
 
     if (elapsedTime < config_.durationSeconds)
     {

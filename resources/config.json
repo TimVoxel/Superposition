@@ -3,9 +3,18 @@
         "width": 1920,
         "height": 1080,
         "fps": 60,
-        "durationSeconds": 60
+        "durationSeconds": 290,
+        "codec": "libx264",
+        "crf": 0,
+        "preset": "veryslow",
+        "pixelFormat": "yuv420p"
     },
     "rendering": {
-        "clearColor": [0.0, 0.0, 0.0, 0.0]
+        "clearColor": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+        ]
     }
 }

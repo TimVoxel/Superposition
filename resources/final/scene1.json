@@ -1,0 +1,29 @@
+{
+    "name": "Scene 1 - wave function",
+    "objects": [
+        {
+            "type": "particleSystem",
+            "transform": {
+                "pos": [0.0, 0.0],
+                "scale": [1.5, 1.5]
+            },
+            "config": {
+                "durationSeconds": 300.0,
+                "fadeoutSeconds": 5.0,
+                "maxSpawnRatePS": 250.0,
+                "maxParticles": 500,
+                "lifetime": 5.0,
+                "pointSize": 0.01,
+                "sizeIncrease": 0.025,
+                "amplitude": 0.0003,
+                "frequency": 50.0,
+                "color": [0.149, 0.196, 0.831, 1.0]
+            },
+            "waveFunction": {
+                "type": "hydrogen",
+                "orbital": "resources/orbitals/hydrogen_n1_l0_m0.bin",
+                "timeStep": 0.01
+            }
+        }
+    ]
+}

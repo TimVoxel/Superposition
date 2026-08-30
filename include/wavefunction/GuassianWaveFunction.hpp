@@ -2,6 +2,8 @@
 
 #include <random>
 
+//this is not actually a wave function but idk calling it a distribution is inconsistent
+
 class GaussianWaveFunction : public WaveFunction
 {
 public:
@@ -11,7 +13,9 @@ public:
     {
     }
 
-    std::pair<float, float> sample(float time) override
+    void update(float deltaTime) override {};
+
+    std::pair<float, float> sample() override
     {
         return {
             distribution_(generator_),

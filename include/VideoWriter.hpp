@@ -4,11 +4,12 @@
 #include <string>
 #include <vector>
 #include <cstring>
+#include <VideoWriterConfig.hpp>
 
 class VideoWriter
 {
 public:
-    bool open(int width, int height, int fps, const std::string& filename);
+    bool open(const VideoWriterConfig& config, const std::string& filename);
     bool writeFrame(const unsigned char* pixels, int width, int height);
     void close();
     ~VideoWriter();

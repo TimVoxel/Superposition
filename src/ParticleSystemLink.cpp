@@ -49,6 +49,7 @@ void ParticleSystemLink::onUpdate(float deltaTime, float currentTime)
     const float elapsedTime = currentTime - startTime_;
     const ParticleSystemConfig& firstConfig = first_->config();
 
+    waveFunction_->update(deltaTime);
     first_->applyAnimation(currentTime);
     second_->applyAnimation(currentTime);
 
@@ -64,7 +65,7 @@ void ParticleSystemLink::onUpdate(float deltaTime, float currentTime)
 
         while (spawnAccumulator_ >= 1.0f)
         {
-            auto [x, y] = waveFunction_->sample(currentTime);
+            auto [x, y] = waveFunction_->sample();
             first_->spawn(x, y);
             second_->spawn(-x, -y);
             spawnAccumulator_ -= 1.0f;

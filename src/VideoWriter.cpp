@@ -2,18 +2,20 @@
 
 #include <iostream>
 
-bool VideoWriter::open(int width, int height, int fps, const std::string& filename)
+bool VideoWriter::open(const VideoWriterConfig& config, const std::string& filename)
 {
     std::string command =
         "ffmpeg "
         "-y "
         "-f rawvideo "
         "-pixel_format rgba "
-        "-video_size " + std::to_string(width) + "x" + std::to_string(height) + " "
-        "-framerate " + std::to_string(fps) + " "
+        "-video_size " + std::to_string(config.width) + "x" + std::to_string(config.height) + " "
+        "-framerate " + std::to_string(config.fps) + " "
         "-i pipe:0 "
-        "-c:v libx264 "
-        "-pix_fmt yuv420p "
+        "-c:v " + config.codec + " "
+        "-crf " + std::to_string(config.crf) + " "
+        "-preset " + config.preset + " "
+        "-pix_fmt " + config.pixelFormat + " "
         "\"" + filename + "\"";
 
     pipe_ = _popen(command.c_str(), "wb");

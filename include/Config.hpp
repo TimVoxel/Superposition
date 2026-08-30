@@ -2,12 +2,11 @@
 
 #include <nlohmann/json.hpp>
 #include <Color.hpp>
+#include <VideoWriterConfig.hpp>
 
 struct Config
 {
-    int width;
-    int height;
-    int fps;
+    VideoWriterConfig video;
     int durationSeconds;
     Color clearColor;
 };

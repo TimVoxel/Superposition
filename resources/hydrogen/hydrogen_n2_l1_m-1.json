@@ -1,0 +1,29 @@
+{
+    "name": "Scene - hydrogen_n2_l1_m-1",
+    "objects": [
+        {
+            "type": "particleSystem",
+            "transform": {
+                "pos": [0.0, 0.0],
+                "scale": [1.0, 1.0]
+            },
+            "config": {
+                "durationSeconds": 20.0,
+                "fadeoutSeconds": 10.0,
+                "maxSpawnRatePS": 250.0,
+                "maxParticles": 1000,
+                "lifetime": 5.0,
+                "pointSize": 0.01,
+                "sizeIncrease": 0.025,
+                "amplitude": 0.0003,
+                "frequency": 50.0,
+                "color": [0.2, 0.2, 1.0, 1.0]
+            },
+            "waveFunction": {
+                "type": "hydrogen",
+                "orbital": "resources/orbitals/hydrogen_n2_l1_m-1.bin",
+                "timeStep": 0.01
+            }
+        }
+    ]
+}

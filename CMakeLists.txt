@@ -16,14 +16,13 @@ FetchContent_Declare(
     GIT_REPOSITORY https://github.com/glfw/glfw.git
     GIT_TAG 3.4
 )
-FetchContent_MakeAvailable(glfw)
-
 FetchContent_Declare(
     json
     GIT_REPOSITORY https://github.com/nlohmann/json.git
     GIT_TAG v3.12.0
 )
-FetchContent_MakeAvailable(json)
+
+FetchContent_MakeAvailable(glfw json)
 
 add_library(glad
     external/glad/src/gl.c)
@@ -41,9 +40,9 @@ add_executable(Superposition
     src/Window.cpp
     src/ParticleSystem.cpp
     src/ParticleSystemConfig.cpp
-    src/WaveFunction.cpp
     src/Config.cpp
     src/VideoWriter.cpp
+    src/VideoWriterConfig.cpp
     src/Scene.cpp
     src/Color.cpp
     src/Compositor.cpp
@@ -52,12 +51,38 @@ add_executable(Superposition
     src/CommandLineArgs.cpp
     src/Transform.cpp
     src/SceneObject.cpp
-    src/animation/Animation.cpp)
+    src/animation/Animation.cpp
+    src/wavefunction/WaveFunction.cpp
+    src/wavefunction/HydrogenWaveFunction.cpp
+    src/wavefunction/OrbitalFile.cpp)
+
+add_executable(EigenstateSolver
+    tools/EigenstateSolver/main.cpp
+    tools/EigenstateSolver/EigenstateFinder.cpp
+    src/wavefunction/OrbitalFile.cpp)
+
+add_executable(AnalyticalHydrogen
+    tools/AnalyticalHydrogen/main.cpp
+    src/wavefunction/OrbitalFile.cpp)
 
 target_include_directories(
     Superposition
     PRIVATE
         include
+)
+
+target_include_directories(
+    EigenstateSolver
+    PRIVATE
+        include
+        tools/EigenstateSolver
+)
+
+target_include_directories(
+    AnalyticalHydrogen
+    PRIVATE
+        include
+        tools/AnalyticalSolver
 )
 
 target_link_libraries(Superposition

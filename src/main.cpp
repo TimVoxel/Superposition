@@ -99,17 +99,17 @@ int runDisplay(Window& window, Renderer& renderer, Scene& scene, const Config& c
 
 int runRender(Window& window, Renderer& renderer, Scene& scene, const Config& config)
 {
-    int fps = config.fps;
+    int fps = config.video.fps;
     float deltaTime = 1.0f / static_cast<float>(fps);
     float startTime = static_cast<float>(glfwGetTime());
     int totalFrames = config.durationSeconds * fps; ;
 
-    int width = config.width;
-    int height = config.height;
+    int width = config.video.width;
+    int height = config.video.height;
 
     Compositor compositor(scene);
     VideoWriter video;
-    if (!video.open(width, height, fps, "output/" + scene.name() + ".mp4"))
+    if (!video.open(config.video, "output/" + scene.name() + ".mp4"))
     {
         return safeExit(-1,"Failed to open video writer\n");
     }
@@ -144,7 +144,7 @@ int main(int argc, char** argv)
         return safeExit(-1, "Unable to initialize rendering environment");
     }
 
-    std::unique_ptr<Window> window = Window::create(config->width, config->height, "Superposition");
+    std::unique_ptr<Window> window = Window::create(config->video.width, config->video.height, "Superposition");
     if (window == nullptr)
     {
         return safeExit(-1, "Unable to open window\n");
