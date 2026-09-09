@@ -1,14 +1,22 @@
 {
     "name": "Scene - hydrogen_n4_l2_m-2",
+    "durationSeconds": 25.0,
     "objects": [
         {
             "type": "particleSystem",
             "transform": {
-                "pos": [0.0, 0.0],
-                "scale": [1.0, 1.0]
+                "pos": [
+                    0.0,
+                    0.0
+                ],
+                "scale": [
+                    1.0,
+                    1.0
+                ]
             },
             "config": {
-                "durationSeconds": 20.0,
+                "growSeconds": 20.0,
+                "sustainSeconds": 0.0,
                 "fadeoutSeconds": 10.0,
                 "maxSpawnRatePS": 250.0,
                 "maxParticles": 1000,
@@ -17,7 +25,12 @@
                 "sizeIncrease": 0.025,
                 "amplitude": 0.0003,
                 "frequency": 50.0,
-                "color": [0.2, 0.2, 1.0, 1.0]
+                "color": [
+                    0.2,
+                    0.2,
+                    1.0,
+                    1.0
+                ]
             },
             "waveFunction": {
                 "type": "hydrogen",

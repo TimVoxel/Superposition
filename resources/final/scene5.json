@@ -1,0 +1,330 @@
+{
+    "name": "Scene 5 - collapse",
+    "durationSeconds": 175.0,
+    "objects": [
+        {
+            "type": "particleSystem",
+            "transform": {
+                "pos": [
+                    0.0,
+                    0.0
+                ],
+                "scale": [
+                    2.0,
+                    1.0
+                ]
+            },
+            "config": {
+                "growSeconds": 1.0,
+                "sustainSeconds": 174.0,
+                "fadeoutSeconds": 0.0,
+                "maxSpawnRatePS": 3000.0,
+                "maxParticles": 3000,
+                "lifetime": 175.0,
+                "pointSize": 0.01,
+                "sizeIncrease": 0.05,
+                "amplitude": 0.0004,
+                "frequency": 40.0,
+                "color": [
+                    0.55,
+                    0.55,
+                    0.7,
+                    1.0
+                ]
+            },
+            "waveFunction": {
+                "type": "gaussian",
+                "sigma": 0.25
+            }
+        },
+        {
+            "type": "particleSystem",
+            "transform": {
+                "pos": [
+                    0.0,
+                    0.0
+                ],
+                "scale": [
+                    2.0,
+                    1.2
+                ]
+            },
+            "config": {
+                "growSeconds": 1.0,
+                "sustainSeconds": 174.0,
+                "fadeoutSeconds": 0.0,
+                "maxSpawnRatePS": 10000.0,
+                "maxParticles": 1000,
+                "lifetime": 175.0,
+                "pointSize": 0.05,
+                "sizeIncrease": 0.05,
+                "amplitude": 0.0004,
+                "frequency": 40.0,
+                "color": [
+                    0.0,
+                    0.0,
+                    0.0,
+                    1.0
+                ]
+            },
+            "waveFunction": {
+                "type": "gaussian",
+                "sigma": 0.23
+            }
+        },
+        {
+            "type": "particleSystem",
+            "transform": {
+                "pos": [
+                    0.0,
+                    0.0
+                ],
+                "scale": [
+                    1.0,
+                    1.0
+                ]
+            },
+            "config": {
+                "growSeconds": 1.0,
+                "sustainSeconds": 174.0,
+                "fadeoutSeconds": 0.0,
+                "maxSpawnRatePS": 500.0,
+                "maxParticles": 2000,
+                "lifetime": 5.0,
+                "pointSize": 0.005,
+                "sizeIncrease": 0.02,
+                "amplitude": 0.0004,
+                "frequency": 40.0,
+                "color": [
+                    0.55,
+                    0.55,
+                    0.7,
+                    1.0
+                ]
+            },
+            "waveFunction": {
+                "type": "hydrogen",
+                "orbital": "resources/orbitals/hydrogen_n3_l0_m0.bin",
+                "timeStep": 0.01
+            },
+            "animations": [
+                {
+                    "type": "sin",
+                    "target": "scale",
+                    "amplitudeX": 0.0025,
+                    "amplitudeY": 0.0025,
+                    "frequency": 200,
+                    "phase": 3.14
+                },
+                {
+                    "type": "sin",
+                    "target": "position",
+                    "amplitudeX": 0.35,
+                    "amplitudeY": 0,
+                    "frequency": 0.5714285714285715,
+                    "phase": 0
+                }
+            ]
+        },
+        {
+            "type": "particleSystem",
+            "transform": {
+                "pos": [
+                    -1.2,
+                    0.0
+                ],
+                "scale": [
+                    1.0,
+                    1.0
+                ],
+                "opacity": 1.0
+            },
+            "config": {
+                "growSeconds": 1.0,
+                "sustainSeconds": 174.0,
+                "fadeoutSeconds": 0.0,
+                "maxSpawnRatePS": 100.0,
+                "maxParticles": 500,
+                "lifetime": 5.0,
+                "pointSize": 0.005,
+                "sizeIncrease": 0.025,
+                "amplitude": 0.0003,
+                "frequency": 50.0,
+                "color": [
+                    0.2,
+                    0.2,
+                    1.0,
+                    1.0
+                ]
+            },
+            "waveFunction": {
+                "type": "hydrogen",
+                "orbital": "resources/orbitals/hydrogen_n2_l1_m0.bin",
+                "timeStep": 0.01
+            },
+            "animations": [
+                {
+                    "type": "pulse",
+                    "target": "opacity",
+                    "deltaX": -1.0,
+                    "deltaY": 0.0,
+                    "period": 5.497787143782137,
+                    "phase": -1.5707963267948966,
+                    "edge": 0.32
+                }
+            ]
+        },
+        {
+            "type": "particleSystem",
+            "transform": {
+                "pos": [
+                    1.2,
+                    0.0
+                ],
+                "scale": [
+                    1.0,
+                    1.0
+                ],
+                "opacity": 1.0
+            },
+            "config": {
+                "growSeconds": 1.0,
+                "sustainSeconds": 174.0,
+                "fadeoutSeconds": 0.0,
+                "maxSpawnRatePS": 100.0,
+                "maxParticles": 500,
+                "lifetime": 5.0,
+                "pointSize": 0.005,
+                "sizeIncrease": 0.025,
+                "amplitude": 0.0003,
+                "frequency": 50.0,
+                "color": [
+                    0.8,
+                    0.2,
+                    0.2,
+                    1.0
+                ]
+            },
+            "waveFunction": {
+                "type": "hydrogen",
+                "orbital": "resources/orbitals/hydrogen_n2_l1_m0.bin",
+                "timeStep": 0.01
+            },
+            "animations": [
+                {
+                    "type": "pulse",
+                    "target": "opacity",
+                    "deltaX": -1.0,
+                    "deltaY": 0.0,
+                    "period": 5.497787143782137,
+                    "phase": -1.5707963267948966,
+                    "edge": 0.32
+                }
+            ]
+        },
+        {
+            "type": "particleSystemLink",
+            "transform": {
+                "pos": [
+                    0.0,
+                    0.0
+                ],
+                "scale": [
+                    1.0,
+                    1.0
+                ]
+            },
+            "first": {
+                "type": "particleSystem",
+                "transform": {
+                    "pos": [
+                        -1.2,
+                        0.0
+                    ],
+                    "scale": [
+                        1.0,
+                        1.0
+                    ],
+                    "opacity": 0.0
+                },
+                "config": {
+                    "growSeconds": 0.01,
+                    "sustainSeconds": 999999.0,
+                    "fadeoutSeconds": 0.0,
+                    "maxSpawnRatePS": 1000.0,
+                    "maxParticles": 1,
+                    "lifetime": 5.497787143782137,
+                    "pointSize": 0.035,
+                    "sizeIncrease": 0.0,
+                    "amplitude": 0.0,
+                    "frequency": 0.0,
+                    "color": [
+                        0.2,
+                        0.2,
+                        1.0,
+                        1.0
+                    ]
+                },
+                "animations": [
+                    {
+                        "type": "pulse",
+                        "target": "opacity",
+                        "deltaX": 1.0,
+                        "deltaY": 0.0,
+                        "period": 5.497787143782137,
+                        "phase": -1.5707963267948966,
+                        "edge": 0.32
+                    }
+                ]
+            },
+            "second": {
+                "type": "particleSystem",
+                "transform": {
+                    "pos": [
+                        1.2,
+                        0.0
+                    ],
+                    "scale": [
+                        1.0,
+                        1.0
+                    ],
+                    "opacity": 0.0
+                },
+                "config": {
+                    "growSeconds": 0.01,
+                    "sustainSeconds": 999999.0,
+                    "fadeoutSeconds": 0.0,
+                    "maxSpawnRatePS": 1000.0,
+                    "maxParticles": 1,
+                    "lifetime": 5.497787143782137,
+                    "pointSize": 0.035,
+                    "sizeIncrease": 0.0,
+                    "amplitude": 0.0,
+                    "frequency": 0.0,
+                    "color": [
+                        0.8,
+                        0.2,
+                        0.2,
+                        1.0
+                    ]
+                },
+                "animations": [
+                    {
+                        "type": "pulse",
+                        "target": "opacity",
+                        "deltaX": 1.0,
+                        "deltaY": 0.0,
+                        "period": 5.497787143782137,
+                        "phase": -1.5707963267948966,
+                        "edge": 0.32
+                    }
+                ]
+            },
+            "waveFunction": {
+                "type": "hydrogen",
+                "orbital": "resources/orbitals/hydrogen_n2_l1_m0.bin",
+                "timeStep": 0.01
+            }
+        }
+    ]
+}

@@ -72,4 +72,7 @@ run.bat
 render.bat
 es-find.bat
 run-ah.bat
+render-all-orbitals.bat
+render-all.bat
+config.json.unused
 output/

@@ -59,4 +59,11 @@ protected:
     SceneObject* parent_;
     std::vector<std::unique_ptr<SceneObject>> children_;
     std::vector<std::unique_ptr<Animation>> animations_;
+
+    // Lazily captured on the first applyAnimation() call, so animations see
+    // elapsed time since this object actually started animating rather than
+    // raw wall-clock time -- makes time-anchored animations (like EaseAnimation's
+    // startTime/duration) reproducible regardless of program startup latency.
+    bool animationStarted_ = false;
+    float animationStartTime_ = 0.0f;
 };

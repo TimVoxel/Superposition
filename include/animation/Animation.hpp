@@ -9,7 +9,8 @@ enum class AnimationTarget
 {
     None     = 0,
     Position = 1 << 0,
-    Scale    = 1 << 1
+    Scale    = 1 << 1,
+    Opacity  = 1 << 2
 };
 
 constexpr AnimationTarget operator|(AnimationTarget a, AnimationTarget b)

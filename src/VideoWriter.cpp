@@ -12,9 +12,14 @@ bool VideoWriter::open(const VideoWriterConfig& config, const std::string& filen
         "-video_size " + std::to_string(config.width) + "x" + std::to_string(config.height) + " "
         "-framerate " + std::to_string(config.fps) + " "
         "-i pipe:0 "
-        "-c:v " + config.codec + " "
-        "-crf " + std::to_string(config.crf) + " "
-        "-preset " + config.preset + " "
+        "-c:v " + config.codec + " ";
+
+    for (const auto& [flag, value] : config.extraArgs)
+    {
+        command += "-" + flag + " " + value + " ";
+    }
+
+    command +=
         "-pix_fmt " + config.pixelFormat + " "
         "\"" + filename + "\"";
 

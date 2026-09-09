@@ -1,0 +1,52 @@
+{
+    "name": "Scene 4 - eye inner",
+    "durationSeconds": 20.0,
+    "objects": [
+        {
+            "type": "particleSystem",
+            "transform": {
+                "pos": [
+                    0.0,
+                    0.0
+                ],
+                "scale": [
+                    1.0,
+                    1.0
+                ]
+            },
+            "config": {
+                "growSeconds": 5.0,
+                "sustainSeconds": 5.0,
+                "fadeoutSeconds": 10.0,
+                "maxSpawnRatePS": 10000.0,
+                "maxParticles": 2000,
+                "lifetime": 5.0,
+                "pointSize": 0.01,
+                "sizeIncrease": 0.01,
+                "amplitude": 0.0004,
+                "frequency": 40.0,
+                "color": [
+                    0.55,
+                    0.55,
+                    0.7,
+                    1.0
+                ]
+            },
+            "waveFunction": {
+                "type": "hydrogen",
+                "orbital": "resources/orbitals/hydrogen_n3_l0_m0.bin",
+                "timeStep": 0.01
+            },
+            "animations": [
+                {
+                    "type": "sin",
+                    "target": "scale",
+                    "amplitudeX": 0.0025,
+                    "amplitudeY": 0.0025,
+                    "frequency": 200,
+                    "phase": 3.14
+                }
+            ]
+        }
+    ]
+}

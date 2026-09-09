@@ -1,5 +1,7 @@
 #include <animation/Animation.hpp>
 #include <animation/SinAnimation.hpp>
+#include <animation/EaseAnimation.hpp>
+#include <animation/PulseAnimation.hpp>
 #include <stdexcept>
 
 static AnimationTarget targetFromJson(const nlohmann::json& json)
@@ -15,6 +17,10 @@ static AnimationTarget targetFromJson(const nlohmann::json& json)
         else if (value == "scale")
         {
             target = target | AnimationTarget::Scale;
+        }
+        else if (value == "opacity")
+        {
+            target = target | AnimationTarget::Opacity;
         }
         else
         {
@@ -35,8 +41,7 @@ static AnimationTarget targetFromJson(const nlohmann::json& json)
     }
     else
     {
-        throw std::runtime_error(
-            "Animation target must be a string or array");
+        throw std::runtime_error("Animation target must be a string or array");
     }
     return target;
 }
@@ -56,9 +61,28 @@ std::unique_ptr<Animation> Animation::fromJson(const nlohmann::json& json)
             json.at("phase").get<float>()
         );
     }
-
-    throw std::runtime_error(
-        "Unknown animation type: " + type);
+    if (type == "ease")
+    {
+        return std::make_unique<EaseAnimation>(
+            target,
+            json.at("deltaX").get<float>(),
+            json.at("deltaY").get<float>(),
+            json.at("startTime").get<float>(),
+            json.at("duration").get<float>()
+        );
+    }
+    if (type == "pulse")
+    {
+        return std::make_unique<PulseAnimation>(
+            target,
+            json.at("deltaX").get<float>(),
+            json.at("deltaY").get<float>(),
+            json.at("period").get<float>(),
+            json.at("phase").get<float>(),
+            json.at("edge").get<float>()
+        );
+    }
+    throw std::runtime_error("Unknown animation type: " + type);
 }
 
 Transform Animator::animate(const Transform& transform, const std::vector<std::unique_ptr<Animation>>& animations, float time)

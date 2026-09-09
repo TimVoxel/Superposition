@@ -15,7 +15,13 @@ void SceneObject::start(float currentTime)
 
 void SceneObject::applyAnimation(float currentTime)
 {
-    animatedTransform_ = Animator::animate(transform_, animations_, currentTime);
+    if (!animationStarted_)
+    {
+        animationStartTime_ = currentTime;
+        animationStarted_ = true;
+    }
+    const float elapsedTime = currentTime - animationStartTime_;
+    animatedTransform_ = Animator::animate(transform_, animations_, elapsedTime);
 }
 
 void SceneObject::update(float deltaTime, float currentTime)
@@ -57,8 +63,7 @@ std::unique_ptr<SceneObject> SceneObject::fromJson(const nlohmann::json& json)
     {
         object->addChild(SceneObject::fromJson(childJson));
     }
-    for (const auto& animationJson :
-        json.value("animations", nlohmann::json::array()))
+    for (const auto& animationJson : json.value("animations", nlohmann::json::array()))
     {
         object->addAnimation(Animation::fromJson(animationJson));
     }
@@ -83,6 +88,8 @@ const Transform SceneObject::worldTransform() const
         .scale = {
             parentTransform.scale.x * animatedTransform_.scale.x,
             parentTransform.scale.y * animatedTransform_.scale.y
-        }
+        },
+
+        .opacity = parentTransform.opacity * animatedTransform_.opacity
     };
 }

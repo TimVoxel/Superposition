@@ -3,11 +3,15 @@
         "width": 1920,
         "height": 1080,
         "fps": 60,
-        "durationSeconds": 290,
-        "codec": "libx264",
-        "crf": 0,
-        "preset": "veryslow",
-        "pixelFormat": "yuv420p"
+        "codec": "prores_ks",
+        "pixelFormat": "yuva444p10le",
+        "fileExtension": "mov",
+        "extraArgs": [
+            {
+                "flag": "profile:v",
+                "value": "4444"
+            }
+        ]
     },
     "rendering": {
         "clearColor": [

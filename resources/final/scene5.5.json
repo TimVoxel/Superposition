@@ -1,0 +1,138 @@
+{
+    "name": "Scene 5.5 - eye moving",
+    "durationSeconds": 30.0,
+    "objects": [
+        {
+            "type": "particleSystem",
+            "transform": {
+                "pos": [
+                    0.0,
+                    0.0
+                ],
+                "scale": [
+                    2.0,
+                    1.0
+                ]
+            },
+            "config": {
+                "growSeconds": 1.0,
+                "sustainSeconds": 95.0,
+                "fadeoutSeconds": 0.0,
+                "maxSpawnRatePS": 3000.0,
+                "maxParticles": 3000,
+                "lifetime": 175.0,
+                "pointSize": 0.01,
+                "sizeIncrease": 0.05,
+                "amplitude": 0.0004,
+                "frequency": 40.0,
+                "color": [
+                    0.55,
+                    0.55,
+                    0.7,
+                    1.0
+                ]
+            },
+            "waveFunction": {
+                "type": "gaussian",
+                "sigma": 0.25
+            }
+        },
+        {
+            "type": "particleSystem",
+            "transform": {
+                "pos": [
+                    0.0,
+                    0.0
+                ],
+                "scale": [
+                    2.0,
+                    1.2
+                ]
+            },
+            "config": {
+                "growSeconds": 1.0,
+                "sustainSeconds": 95.0,
+                "fadeoutSeconds": 0.0,
+                "maxSpawnRatePS": 10000.0,
+                "maxParticles": 1000,
+                "lifetime": 175.0,
+                "pointSize": 0.05,
+                "sizeIncrease": 0.05,
+                "amplitude": 0.0004,
+                "frequency": 40.0,
+                "color": [
+                    0.0,
+                    0.0,
+                    0.0,
+                    1.0
+                ]
+            },
+            "waveFunction": {
+                "type": "gaussian",
+                "sigma": 0.23
+            }
+        },
+        {
+            "type": "particleSystem",
+            "transform": {
+                "pos": [
+                    0.0,
+                    0.0
+                ],
+                "scale": [
+                    1.0,
+                    1.0
+                ]
+            },
+            "config": {
+                "growSeconds": 1.0,
+                "sustainSeconds": 95.0,
+                "fadeoutSeconds": 0.0,
+                "maxSpawnRatePS": 500.0,
+                "maxParticles": 2000,
+                "lifetime": 5.0,
+                "pointSize": 0.005,
+                "sizeIncrease": 0.02,
+                "amplitude": 0.0004,
+                "frequency": 40.0,
+                "color": [
+                    0.55,
+                    0.55,
+                    0.7,
+                    1.0
+                ]
+            },
+            "waveFunction": {
+                "type": "hydrogen",
+                "orbital": "resources/orbitals/hydrogen_n3_l0_m0.bin",
+                "timeStep": 0.01
+            },
+            "animations": [
+                {
+                    "type": "sin",
+                    "target": "scale",
+                    "amplitudeX": 0.0025,
+                    "amplitudeY": 0.0025,
+                    "frequency": 200,
+                    "phase": 3.14
+                },
+                {
+                    "type": "sin",
+                    "target": "position",
+                    "amplitudeX": 0.35,
+                    "amplitudeY": 0,
+                    "frequency": 0.5714285714285715,
+                    "phase": 0
+                },
+                {
+                    "type": "sin",
+                    "target": "position",
+                    "amplitudeX": 0.0,
+                    "amplitudeY": 0.075,
+                    "frequency": 1.142857142857143,
+                    "phase": 1.57
+                }
+            ]
+        }
+    ]
+}

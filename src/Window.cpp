@@ -10,6 +10,18 @@ std::unique_ptr<Window> Window::create(int width, int height, const std::string&
     return std::make_unique<Window>(window);
 }
 
+std::unique_ptr<Window> Window::createVirtual(const std::string& name)
+{
+    glfwWindowHint(GLFW_VISIBLE, GLFW_FALSE);
+    GLFWwindow* window = glfwCreateWindow(1, 1, name.c_str(), nullptr, nullptr);
+    if (window == nullptr)
+    {
+        return nullptr;
+    }
+    glfwWindowHint(GLFW_VISIBLE, GLFW_TRUE);
+    return std::make_unique<Window>(window);
+}
+
 int Window::width()
 {
     return width_;

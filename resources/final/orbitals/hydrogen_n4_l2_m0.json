@@ -1,0 +1,42 @@
+{
+    "name": "Orbital - n4 l2 m0",
+    "durationSeconds": 34.0,
+    "objects": [
+        {
+            "type": "particleSystem",
+            "transform": {
+                "pos": [
+                    0.0,
+                    0.0
+                ],
+                "scale": [
+                    1.5,
+                    1.5
+                ]
+            },
+            "config": {
+                "growSeconds": 20.0,
+                "sustainSeconds": 9.0,
+                "fadeoutSeconds": 5.0,
+                "maxSpawnRatePS": 500.0,
+                "maxParticles": 500,
+                "lifetime": 5.0,
+                "pointSize": 0.01,
+                "sizeIncrease": 0.025,
+                "amplitude": 0.0003,
+                "frequency": 50.0,
+                "color": [
+                    0.2,
+                    0.3,
+                    0.45,
+                    1.0
+                ]
+            },
+            "waveFunction": {
+                "type": "hydrogen",
+                "orbital": "resources/orbitals/hydrogen_n4_l2_m0.bin",
+                "timeStep": 0.01
+            }
+        }
+    ]
+}

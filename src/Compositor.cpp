@@ -75,7 +75,7 @@ void Compositor::composeParticleSystem(const ParticleSystem& system)
             .r = config.color.r,
             .g = config.color.g,
             .b = config.color.b,
-            .a = config.color.a
+            .a = config.color.a * transform.opacity
         });
     }
 }

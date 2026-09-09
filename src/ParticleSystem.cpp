@@ -58,10 +58,23 @@ void ParticleSystem::onUpdate(float deltaTime, float currentTime)
         waveFunction_->update(deltaTime);
     }
 
-    if (elapsedTime < config_.durationSeconds)
+    const float growEnd = config_.growSeconds;
+    const float sustainEnd = growEnd + config_.sustainSeconds;
+
+    if (elapsedTime < growEnd)
     {
-        float spawnRateGrowthPS_ = config_.maxSpawnRatePS / config_.durationSeconds;
+        float spawnRateGrowthPS_ = growEnd > 0.0f
+            ? config_.maxSpawnRatePS / growEnd
+            : config_.maxSpawnRatePS;
         spawnRatePS_ = std::min(spawnRatePS_ + spawnRateGrowthPS_ * deltaTime, config_.maxSpawnRatePS);
+    }
+    else 
+    {
+        spawnRatePS_ = config_.maxSpawnRatePS;
+    }
+    
+    if (elapsedTime < sustainEnd)
+    {
         spawnAccumulator_ += deltaTime * spawnRatePS_;
 
         while (spawnAccumulator_ >= 1.0f)
@@ -70,6 +83,7 @@ void ParticleSystem::onUpdate(float deltaTime, float currentTime)
             spawnAccumulator_ -= 1.0f;
         }
     }
+
     updateExisting(deltaTime);
 }
 

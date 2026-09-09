@@ -1,0 +1,76 @@
+{
+    "name": "Scene 4 - eye outer",
+    "durationSeconds": 20.0,
+    "objects": [
+        {
+            "type": "particleSystem",
+            "transform": {
+                "pos": [
+                    0.0,
+                    0.0
+                ],
+                "scale": [
+                    2.0,
+                    1.0
+                ]
+            },
+            "config": {
+                "growSeconds": 5.0,
+                "sustainSeconds": 5.0,
+                "fadeoutSeconds": 10.0,
+                "maxSpawnRatePS": 3000.0,
+                "maxParticles": 3000,
+                "lifetime": 10.0,
+                "pointSize": 0.001,
+                "sizeIncrease": 0.02,
+                "amplitude": 0.0004,
+                "frequency": 40.0,
+                "color": [
+                    0.55,
+                    0.55,
+                    0.7,
+                    1.0
+                ]
+            },
+            "waveFunction": {
+                "type": "gaussian",
+                "sigma": 0.25
+            }
+        },
+        {
+            "type": "particleSystem",
+            "transform": {
+                "pos": [
+                    0.0,
+                    0.0
+                ],
+                "scale": [
+                    2.0,
+                    1.2
+                ]
+            },
+            "config": {
+                "growSeconds": 5.0,
+                "sustainSeconds": 5.0,
+                "fadeoutSeconds": 10.0,
+                "maxSpawnRatePS": 10000.0,
+                "maxParticles": 1500,
+                "lifetime": 10.0,
+                "pointSize": 0.02,
+                "sizeIncrease": 0.05,
+                "amplitude": 0.0004,
+                "frequency": 40.0,
+                "color": [
+                    0.0,
+                    0.0,
+                    0.0,
+                    1.0
+                ]
+            },
+            "waveFunction": {
+                "type": "gaussian",
+                "sigma": 0.2
+            }
+        }
+    ]
+}

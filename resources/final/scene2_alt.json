@@ -1,36 +1,55 @@
 {
-    "name": "Scene 3 - distance",
+    "name": "Scene 2 - entanglement",
+    "durationSeconds": 265.0,
     "objects": [
         {
             "type": "particleSystemLink",
             "transform": {
-                "pos": [0.0, 0.0],
-                "scale": [1.0, 1.0]
+                "pos": [
+                    0.0,
+                    0.0
+                ],
+                "scale": [
+                    1.5,
+                    1.5
+                ]
             },
             "first": {
                 "type": "particleSystem",
                 "transform": {
-                    "pos": [0.25, 0.0],
-                    "scale": [1.0, 1.0]
+                    "pos": [
+                        -0.3,
+                        0.0
+                    ],
+                    "scale": [
+                        1.0,
+                        1.0
+                    ]
                 },
                 "config": {
-                    "durationSeconds": 60.0,
-                    "fadeoutSeconds": 10.0,
+                    "growSeconds": 260.0,
+                    "sustainSeconds": 0.0,
+                    "fadeoutSeconds": 20.0,
                     "maxSpawnRatePS": 250.0,
                     "maxParticles": 500,
                     "lifetime": 5.0,
-                    "pointSize": 0.015,
-                    "sizeIncrease": 0.075,
+                    "pointSize": 0.01,
+                    "sizeIncrease": 0.025,
                     "amplitude": 0.0003,
                     "frequency": 50.0,
-                    "color": [1.0, 0.4, 0.2, 1.0]
+                    "color": [
+                        0.8,
+                        0.2,
+                        0.2,
+                        1.0
+                    ]
                 },
                 "animations": [
                     {
                         "type": "sin",
                         "target": "position",
-                        "amplitudeX": -0.3,
-                        "amplitudeY": 0,
+                        "amplitudeX": 0.0,
+                        "amplitudeY": 0.2,
                         "frequency": 0.5,
                         "phase": 3.14
                     },
@@ -39,7 +58,7 @@
                         "target": "scale",
                         "amplitudeX": 0.5,
                         "amplitudeY": 0.5,
-                        "frequency": 0.5,
+                        "frequency": 0.25,
                         "phase": 3.14
                     }
                 ]
@@ -47,27 +66,39 @@
             "second": {
                 "type": "particleSystem",
                 "transform": {
-                    "pos": [-0.25, 0.0],
-                    "scale": [1.0, 1.0]
+                    "pos": [
+                        0.3,
+                        0.0
+                    ],
+                    "scale": [
+                        1.0,
+                        1.0
+                    ]
                 },
                 "config": {
-                    "durationSeconds": 60.0,
+                    "growSeconds": 60.0,
+                    "sustainSeconds": 0.0,
                     "fadeoutSeconds": 10.0,
                     "maxSpawnRatePS": 20.0,
                     "maxParticles": 5050,
                     "lifetime": 5.0,
-                    "pointSize": 0.015,
-                    "sizeIncrease": 0.075,
+                    "pointSize": 0.01,
+                    "sizeIncrease": 0.025,
                     "amplitude": 0.0003,
                     "frequency": 50.0,
-                    "color": [0.2, 0.2, 1.0, 1.0]
+                    "color": [
+                        0.2,
+                        0.2,
+                        1.0,
+                        1.0
+                    ]
                 },
                 "animations": [
                     {
                         "type": "sin",
                         "target": "position",
-                        "amplitudeX": 0.3,
-                        "amplitudeY": 0,
+                        "amplitudeX": 0.0,
+                        "amplitudeY": 0.2,
                         "frequency": 0.5,
                         "phase": 0
                     },
@@ -76,14 +107,15 @@
                         "target": "scale",
                         "amplitudeX": 0.5,
                         "amplitudeY": 0.5,
-                        "frequency": 0.5,
+                        "frequency": 0.25,
                         "phase": 0
                     }
                 ]
             },
             "waveFunction": {
-                "type": "gaussian",
-                "sigma": 0.2
+                "type": "hydrogen",
+                "orbital": "resources/orbitals/hydrogen_n4_l3_m0.bin",
+                "timeStep": 0.01
             }
         }
     ]

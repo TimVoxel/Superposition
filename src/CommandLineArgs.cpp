@@ -26,10 +26,18 @@ CommandLineArgs parseCommandLineArgs(int argc, char** argv)
             }
             args.scenePath = argv[++i];
         }
+        else if (argument == "-o")
+        {
+            if (i + 1 >= argc)
+            {
+                std::cerr << "Missing output directory after -o\n";
+                continue;
+            }
+            args.outputDir = argv[++i];
+        }
         else
         {
-            std::cout << "Unknown option \"" << argument
-                      << "\": -r, -d, -s <scene>\n";
+            std::cout << "Unknown option \"" << argument << "\": -r, -d, -s <scene>, -o <outputDir\n";
         }
     }
     return args;

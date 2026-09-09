@@ -8,7 +8,6 @@
 #include <Renderer.hpp>
 #include <Window.hpp>
 #include <ParticleSystem.hpp>
-#include <Config.hpp>
 #include <nlohmann/json.hpp>
 #include <fstream>
 #include <exception>
@@ -17,6 +16,7 @@
 #include <Scene.hpp>
 #include <Compositor.hpp>
 #include <CommandLineArgs.hpp>
+#include <Config.hpp>
 
 std::optional<Config> loadConfig(const std::string& path)
 {
@@ -97,19 +97,21 @@ int runDisplay(Window& window, Renderer& renderer, Scene& scene, const Config& c
     return safeExit(0, std::nullopt);
 }
 
-int runRender(Window& window, Renderer& renderer, Scene& scene, const Config& config)
+int runRender(Window& window, Renderer& renderer, Scene& scene, const Config& config, const std::string& outputDir)
 {
     int fps = config.video.fps;
     float deltaTime = 1.0f / static_cast<float>(fps);
     float startTime = static_cast<float>(glfwGetTime());
-    int totalFrames = config.durationSeconds * fps; ;
+    int totalFrames = static_cast<int>(scene.durationSeconds() * fps);
 
     int width = config.video.width;
     int height = config.video.height;
 
     Compositor compositor(scene);
     VideoWriter video;
-    if (!video.open(config.video, "output/" + scene.name() + ".mp4"))
+    const std::string outputPath = outputDir + "/" + scene.name() + "." + config.video.fileExtension;
+    std::cout << "Rendering to " << outputPath;
+    if (!video.open(config.video, outputPath))
     {
         return safeExit(-1,"Failed to open video writer\n");
     }
@@ -144,7 +146,10 @@ int main(int argc, char** argv)
         return safeExit(-1, "Unable to initialize rendering environment");
     }
 
-    std::unique_ptr<Window> window = Window::create(config->video.width, config->video.height, "Superposition");
+    std::unique_ptr<Window> window = args.mode == RunMode::Display
+        ? Window::create(config->video.width, config->video.height, "Superposition")
+        : Window::createVirtual("Superposition");
+
     if (window == nullptr)
     {
         return safeExit(-1, "Unable to open window\n");
@@ -167,7 +172,7 @@ int main(int argc, char** argv)
         return safeExit(-1, "Unable to start due to the shader not being loaded");
     }
     
-    Renderer renderer(shader.value());
+    Renderer renderer(shader.value(), args.mode, config->video.width, config->video.height);
     std::optional<Scene> scene = loadScene(args.scenePath);
     if (!scene.has_value())
     {
@@ -180,6 +185,6 @@ int main(int argc, char** argv)
     }
     else
     {
-        return runRender(*window, renderer, *scene, config.value());
+        return runRender(*window, renderer, *scene, config.value(), args.outputDir);
     }
 }

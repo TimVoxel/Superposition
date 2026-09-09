@@ -4,8 +4,8 @@
 
 void from_json(const nlohmann::json& json, ParticleSystemConfig& config)
 {
-    json.at("durationSeconds").get_to(config.durationSeconds);
-    json.at("fadeoutSeconds").get_to(config.fadeoutSeconds);
+    json.at("growSeconds").get_to(config.growSeconds);
+    json.at("sustainSeconds").get_to(config.sustainSeconds);
     json.at("maxSpawnRatePS").get_to(config.maxSpawnRatePS);
     json.at("maxParticles").get_to(config.maxParticles);
     json.at("lifetime").get_to(config.lifetime);

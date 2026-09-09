@@ -53,14 +53,24 @@ void ParticleSystemLink::onUpdate(float deltaTime, float currentTime)
     first_->applyAnimation(currentTime);
     second_->applyAnimation(currentTime);
 
-    if (elapsedTime < firstConfig.durationSeconds)
+    const float growEnd = firstConfig.growSeconds;
+    const float sustainEnd = growEnd + firstConfig.sustainSeconds;
+    
+    if (elapsedTime < growEnd)
     {
         spawnRatePS_ = std::min(
             spawnRatePS_ +
-            (firstConfig.maxSpawnRatePS / firstConfig.durationSeconds) * deltaTime,
+            (growEnd > 0.0f ? firstConfig.maxSpawnRatePS / growEnd : firstConfig.maxSpawnRatePS) * deltaTime,
             firstConfig.maxSpawnRatePS
         );
+    }
+    else
+    {
+        spawnRatePS_ = firstConfig.maxSpawnRatePS;
+    }
 
+    if (elapsedTime < sustainEnd)
+    {   
         spawnAccumulator_ += deltaTime * spawnRatePS_;
 
         while (spawnAccumulator_ >= 1.0f)
@@ -71,7 +81,6 @@ void ParticleSystemLink::onUpdate(float deltaTime, float currentTime)
             spawnAccumulator_ -= 1.0f;
         }
     }
-
     first_->updateExisting(deltaTime);
     second_->updateExisting(deltaTime);
 }

@@ -7,6 +7,7 @@ class Window
 {
 public:
     static std::unique_ptr<Window> create(int width, int height, const std::string& name);
+    static std::unique_ptr<Window> createVirtual(const std::string& name);
     int width();
     int height();
     void hide();

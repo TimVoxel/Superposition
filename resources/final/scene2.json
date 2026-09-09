@@ -1,20 +1,34 @@
 {
     "name": "Scene 2 - entanglement",
+    "durationSeconds": 265.0,
     "objects": [
         {
             "type": "particleSystemLink",
             "transform": {
-                "pos": [0.0, 0.0],
-                "scale": [1.5, 1.5]
+                "pos": [
+                    0.0,
+                    0.0
+                ],
+                "scale": [
+                    1.5,
+                    1.5
+                ]
             },
             "first": {
                 "type": "particleSystem",
                 "transform": {
-                    "pos": [0.0, 0.0],
-                    "scale": [1.0, 1.0]
+                    "pos": [
+                        0.0,
+                        0.0
+                    ],
+                    "scale": [
+                        1.0,
+                        1.0
+                    ]
                 },
                 "config": {
-                    "durationSeconds": 260.0,
+                    "growSeconds": 260.0,
+                    "sustainSeconds": 0.0,
                     "fadeoutSeconds": 20.0,
                     "maxSpawnRatePS": 250.0,
                     "maxParticles": 500,
@@ -23,7 +37,12 @@
                     "sizeIncrease": 0.025,
                     "amplitude": 0.0003,
                     "frequency": 50.0,
-                    "color": [0.8, 0.2, 0.2, 1.0]
+                    "color": [
+                        0.8,
+                        0.2,
+                        0.2,
+                        1.0
+                    ]
                 },
                 "animations": [
                     {
@@ -47,11 +66,18 @@
             "second": {
                 "type": "particleSystem",
                 "transform": {
-                    "pos": [0.0, 0.0],
-                    "scale": [1.0, 1.0]
+                    "pos": [
+                        0.0,
+                        0.0
+                    ],
+                    "scale": [
+                        1.0,
+                        1.0
+                    ]
                 },
                 "config": {
-                    "durationSeconds": 60.0,
+                    "growSeconds": 60.0,
+                    "sustainSeconds": 0.0,
                     "fadeoutSeconds": 10.0,
                     "maxSpawnRatePS": 20.0,
                     "maxParticles": 5050,
@@ -60,7 +86,12 @@
                     "sizeIncrease": 0.025,
                     "amplitude": 0.0003,
                     "frequency": 50.0,
-                    "color": [0.2, 0.2, 1.0, 1.0]
+                    "color": [
+                        0.2,
+                        0.2,
+                        1.0,
+                        1.0
+                    ]
                 },
                 "animations": [
                     {

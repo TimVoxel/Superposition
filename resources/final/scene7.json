@@ -1,0 +1,1806 @@
+{
+    "name": "Scene 7 - classical points grid",
+    "durationSeconds": 100.0,
+    "objects": [
+        {
+            "type": "container",
+            "transform": {
+                "pos": [
+                    -2.0,
+                    0.0
+                ],
+                "scale": [
+                    1.0,
+                    1.0
+                ]
+            },
+            "animations": [
+                {
+                    "type": "sin",
+                    "target": "position",
+                    "amplitudeX": 0.0,
+                    "amplitudeY": 0.15,
+                    "frequency": 0.5,
+                    "phase": 3.14159265
+                }
+            ],
+            "children": [
+                {
+                    "type": "particleSystem",
+                    "transform": {
+                        "pos": [
+                            0.0,
+                            -1.0
+                        ],
+                        "scale": [
+                            1.0,
+                            1.0
+                        ]
+                    },
+                    "config": {
+                        "growSeconds": 2147483647.0,
+                        "sustainSeconds": 0.0,
+                        "fadeoutSeconds": 0.0,
+                        "maxSpawnRatePS": 1.0,
+                        "maxParticles": 1,
+                        "lifetime": 100.0,
+                        "pointSize": 0.035,
+                        "sizeIncrease": 0.0,
+                        "amplitude": 0.0,
+                        "frequency": 0.0,
+                        "color": [
+                            0.65,
+                            0.4,
+                            0.15,
+                            1.0
+                        ]
+                    },
+                    "waveFunction": {
+                        "type": "gaussian",
+                        "sigma": 0.001
+                    }
+                },
+                {
+                    "type": "particleSystem",
+                    "transform": {
+                        "pos": [
+                            0.0,
+                            -0.5
+                        ],
+                        "scale": [
+                            1.0,
+                            1.0
+                        ]
+                    },
+                    "config": {
+                        "growSeconds": 2147483647.0,
+                        "sustainSeconds": 0.0,
+                        "fadeoutSeconds": 0.0,
+                        "maxSpawnRatePS": 1.0,
+                        "maxParticles": 1,
+                        "lifetime": 100.0,
+                        "pointSize": 0.035,
+                        "sizeIncrease": 0.0,
+                        "amplitude": 0.0,
+                        "frequency": 0.0,
+                        "color": [
+                            0.65,
+                            0.4,
+                            0.15,
+                            1.0
+                        ]
+                    },
+                    "waveFunction": {
+                        "type": "gaussian",
+                        "sigma": 0.001
+                    }
+                },
+                {
+                    "type": "particleSystem",
+                    "transform": {
+                        "pos": [
+                            0.0,
+                            0.0
+                        ],
+                        "scale": [
+                            1.0,
+                            1.0
+                        ]
+                    },
+                    "config": {
+                        "growSeconds": 2147483647.0,
+                        "sustainSeconds": 0.0,
+                        "fadeoutSeconds": 0.0,
+                        "maxSpawnRatePS": 1.0,
+                        "maxParticles": 1,
+                        "lifetime": 100.0,
+                        "pointSize": 0.035,
+                        "sizeIncrease": 0.0,
+                        "amplitude": 0.0,
+                        "frequency": 0.0,
+                        "color": [
+                            0.65,
+                            0.4,
+                            0.15,
+                            1.0
+                        ]
+                    },
+                    "waveFunction": {
+                        "type": "gaussian",
+                        "sigma": 0.001
+                    }
+                },
+                {
+                    "type": "particleSystem",
+                    "transform": {
+                        "pos": [
+                            0.0,
+                            0.5
+                        ],
+                        "scale": [
+                            1.0,
+                            1.0
+                        ]
+                    },
+                    "config": {
+                        "growSeconds": 2147483647.0,
+                        "sustainSeconds": 0.0,
+                        "fadeoutSeconds": 0.0,
+                        "maxSpawnRatePS": 1.0,
+                        "maxParticles": 1,
+                        "lifetime": 100.0,
+                        "pointSize": 0.035,
+                        "sizeIncrease": 0.0,
+                        "amplitude": 0.0,
+                        "frequency": 0.0,
+                        "color": [
+                            0.65,
+                            0.4,
+                            0.15,
+                            1.0
+                        ]
+                    },
+                    "waveFunction": {
+                        "type": "gaussian",
+                        "sigma": 0.001
+                    }
+                },
+                {
+                    "type": "particleSystem",
+                    "transform": {
+                        "pos": [
+                            0.0,
+                            1.0
+                        ],
+                        "scale": [
+                            1.0,
+                            1.0
+                        ]
+                    },
+                    "config": {
+                        "growSeconds": 2147483647.0,
+                        "sustainSeconds": 0.0,
+                        "fadeoutSeconds": 0.0,
+                        "maxSpawnRatePS": 1.0,
+                        "maxParticles": 1,
+                        "lifetime": 100.0,
+                        "pointSize": 0.035,
+                        "sizeIncrease": 0.0,
+                        "amplitude": 0.0,
+                        "frequency": 0.0,
+                        "color": [
+                            0.65,
+                            0.4,
+                            0.15,
+                            1.0
+                        ]
+                    },
+                    "waveFunction": {
+                        "type": "gaussian",
+                        "sigma": 0.001
+                    }
+                }
+            ]
+        },
+        {
+            "type": "container",
+            "transform": {
+                "pos": [
+                    -1.5,
+                    0.0
+                ],
+                "scale": [
+                    1.0,
+                    1.0
+                ]
+            },
+            "animations": [
+                {
+                    "type": "sin",
+                    "target": "position",
+                    "amplitudeX": 0.0,
+                    "amplitudeY": 0.15,
+                    "frequency": 0.5,
+                    "phase": 0.0
+                }
+            ],
+            "children": [
+                {
+                    "type": "particleSystem",
+                    "transform": {
+                        "pos": [
+                            0.0,
+                            -1.0
+                        ],
+                        "scale": [
+                            1.0,
+                            1.0
+                        ]
+                    },
+                    "config": {
+                        "growSeconds": 2147483647.0,
+                        "sustainSeconds": 0.0,
+                        "fadeoutSeconds": 0.0,
+                        "maxSpawnRatePS": 1.0,
+                        "maxParticles": 1,
+                        "lifetime": 100.0,
+                        "pointSize": 0.035,
+                        "sizeIncrease": 0.0,
+                        "amplitude": 0.0,
+                        "frequency": 0.0,
+                        "color": [
+                            0.35,
+                            0.35,
+                            0.38,
+                            1.0
+                        ]
+                    },
+                    "waveFunction": {
+                        "type": "gaussian",
+                        "sigma": 0.001
+                    }
+                },
+                {
+                    "type": "particleSystem",
+                    "transform": {
+                        "pos": [
+                            0.0,
+                            -0.5
+                        ],
+                        "scale": [
+                            1.0,
+                            1.0
+                        ]
+                    },
+                    "config": {
+                        "growSeconds": 2147483647.0,
+                        "sustainSeconds": 0.0,
+                        "fadeoutSeconds": 0.0,
+                        "maxSpawnRatePS": 1.0,
+                        "maxParticles": 1,
+                        "lifetime": 100.0,
+                        "pointSize": 0.035,
+                        "sizeIncrease": 0.0,
+                        "amplitude": 0.0,
+                        "frequency": 0.0,
+                        "color": [
+                            0.35,
+                            0.35,
+                            0.38,
+                            1.0
+                        ]
+                    },
+                    "waveFunction": {
+                        "type": "gaussian",
+                        "sigma": 0.001
+                    }
+                },
+                {
+                    "type": "particleSystem",
+                    "transform": {
+                        "pos": [
+                            0.0,
+                            0.0
+                        ],
+                        "scale": [
+                            1.0,
+                            1.0
+                        ]
+                    },
+                    "config": {
+                        "growSeconds": 2147483647.0,
+                        "sustainSeconds": 0.0,
+                        "fadeoutSeconds": 0.0,
+                        "maxSpawnRatePS": 1.0,
+                        "maxParticles": 1,
+                        "lifetime": 100.0,
+                        "pointSize": 0.035,
+                        "sizeIncrease": 0.0,
+                        "amplitude": 0.0,
+                        "frequency": 0.0,
+                        "color": [
+                            0.35,
+                            0.35,
+                            0.38,
+                            1.0
+                        ]
+                    },
+                    "waveFunction": {
+                        "type": "gaussian",
+                        "sigma": 0.001
+                    }
+                },
+                {
+                    "type": "particleSystem",
+                    "transform": {
+                        "pos": [
+                            0.0,
+                            0.5
+                        ],
+                        "scale": [
+                            1.0,
+                            1.0
+                        ]
+                    },
+                    "config": {
+                        "growSeconds": 2147483647.0,
+                        "sustainSeconds": 0.0,
+                        "fadeoutSeconds": 0.0,
+                        "maxSpawnRatePS": 1.0,
+                        "maxParticles": 1,
+                        "lifetime": 100.0,
+                        "pointSize": 0.035,
+                        "sizeIncrease": 0.0,
+                        "amplitude": 0.0,
+                        "frequency": 0.0,
+                        "color": [
+                            0.35,
+                            0.35,
+                            0.38,
+                            1.0
+                        ]
+                    },
+                    "waveFunction": {
+                        "type": "gaussian",
+                        "sigma": 0.001
+                    }
+                },
+                {
+                    "type": "particleSystem",
+                    "transform": {
+                        "pos": [
+                            0.0,
+                            1.0
+                        ],
+                        "scale": [
+                            1.0,
+                            1.0
+                        ]
+                    },
+                    "config": {
+                        "growSeconds": 2147483647.0,
+                        "sustainSeconds": 0.0,
+                        "fadeoutSeconds": 0.0,
+                        "maxSpawnRatePS": 1.0,
+                        "maxParticles": 1,
+                        "lifetime": 100.0,
+                        "pointSize": 0.035,
+                        "sizeIncrease": 0.0,
+                        "amplitude": 0.0,
+                        "frequency": 0.0,
+                        "color": [
+                            0.35,
+                            0.35,
+                            0.38,
+                            1.0
+                        ]
+                    },
+                    "waveFunction": {
+                        "type": "gaussian",
+                        "sigma": 0.001
+                    }
+                }
+            ]
+        },
+        {
+            "type": "container",
+            "transform": {
+                "pos": [
+                    -1.0,
+                    0.0
+                ],
+                "scale": [
+                    1.0,
+                    1.0
+                ]
+            },
+            "animations": [
+                {
+                    "type": "sin",
+                    "target": "position",
+                    "amplitudeX": 0.0,
+                    "amplitudeY": 0.15,
+                    "frequency": 0.5,
+                    "phase": 3.14159265
+                }
+            ],
+            "children": [
+                {
+                    "type": "particleSystem",
+                    "transform": {
+                        "pos": [
+                            0.0,
+                            -1.0
+                        ],
+                        "scale": [
+                            1.0,
+                            1.0
+                        ]
+                    },
+                    "config": {
+                        "growSeconds": 2147483647.0,
+                        "sustainSeconds": 0.0,
+                        "fadeoutSeconds": 0.0,
+                        "maxSpawnRatePS": 1.0,
+                        "maxParticles": 1,
+                        "lifetime": 100.0,
+                        "pointSize": 0.035,
+                        "sizeIncrease": 0.0,
+                        "amplitude": 0.0,
+                        "frequency": 0.0,
+                        "color": [
+                            0.2,
+                            0.3,
+                            0.45,
+                            1.0
+                        ]
+                    },
+                    "waveFunction": {
+                        "type": "gaussian",
+                        "sigma": 0.001
+                    }
+                },
+                {
+                    "type": "particleSystem",
+                    "transform": {
+                        "pos": [
+                            0.0,
+                            -0.5
+                        ],
+                        "scale": [
+                            1.0,
+                            1.0
+                        ]
+                    },
+                    "config": {
+                        "growSeconds": 2147483647.0,
+                        "sustainSeconds": 0.0,
+                        "fadeoutSeconds": 0.0,
+                        "maxSpawnRatePS": 1.0,
+                        "maxParticles": 1,
+                        "lifetime": 100.0,
+                        "pointSize": 0.035,
+                        "sizeIncrease": 0.0,
+                        "amplitude": 0.0,
+                        "frequency": 0.0,
+                        "color": [
+                            0.2,
+                            0.3,
+                            0.45,
+                            1.0
+                        ]
+                    },
+                    "waveFunction": {
+                        "type": "gaussian",
+                        "sigma": 0.001
+                    }
+                },
+                {
+                    "type": "particleSystem",
+                    "transform": {
+                        "pos": [
+                            0.0,
+                            0.0
+                        ],
+                        "scale": [
+                            1.0,
+                            1.0
+                        ]
+                    },
+                    "config": {
+                        "growSeconds": 2147483647.0,
+                        "sustainSeconds": 0.0,
+                        "fadeoutSeconds": 0.0,
+                        "maxSpawnRatePS": 1.0,
+                        "maxParticles": 1,
+                        "lifetime": 100.0,
+                        "pointSize": 0.035,
+                        "sizeIncrease": 0.0,
+                        "amplitude": 0.0,
+                        "frequency": 0.0,
+                        "color": [
+                            0.2,
+                            0.3,
+                            0.45,
+                            1.0
+                        ]
+                    },
+                    "waveFunction": {
+                        "type": "gaussian",
+                        "sigma": 0.001
+                    }
+                },
+                {
+                    "type": "particleSystem",
+                    "transform": {
+                        "pos": [
+                            0.0,
+                            0.5
+                        ],
+                        "scale": [
+                            1.0,
+                            1.0
+                        ]
+                    },
+                    "config": {
+                        "growSeconds": 2147483647.0,
+                        "sustainSeconds": 0.0,
+                        "fadeoutSeconds": 0.0,
+                        "maxSpawnRatePS": 1.0,
+                        "maxParticles": 1,
+                        "lifetime": 100.0,
+                        "pointSize": 0.035,
+                        "sizeIncrease": 0.0,
+                        "amplitude": 0.0,
+                        "frequency": 0.0,
+                        "color": [
+                            0.2,
+                            0.3,
+                            0.45,
+                            1.0
+                        ]
+                    },
+                    "waveFunction": {
+                        "type": "gaussian",
+                        "sigma": 0.001
+                    }
+                },
+                {
+                    "type": "particleSystem",
+                    "transform": {
+                        "pos": [
+                            0.0,
+                            1.0
+                        ],
+                        "scale": [
+                            1.0,
+                            1.0
+                        ]
+                    },
+                    "config": {
+                        "growSeconds": 2147483647.0,
+                        "sustainSeconds": 0.0,
+                        "fadeoutSeconds": 0.0,
+                        "maxSpawnRatePS": 1.0,
+                        "maxParticles": 1,
+                        "lifetime": 100.0,
+                        "pointSize": 0.035,
+                        "sizeIncrease": 0.0,
+                        "amplitude": 0.0,
+                        "frequency": 0.0,
+                        "color": [
+                            0.2,
+                            0.3,
+                            0.45,
+                            1.0
+                        ]
+                    },
+                    "waveFunction": {
+                        "type": "gaussian",
+                        "sigma": 0.001
+                    }
+                }
+            ]
+        },
+        {
+            "type": "container",
+            "transform": {
+                "pos": [
+                    -0.5,
+                    0.0
+                ],
+                "scale": [
+                    1.0,
+                    1.0
+                ]
+            },
+            "animations": [
+                {
+                    "type": "sin",
+                    "target": "position",
+                    "amplitudeX": 0.0,
+                    "amplitudeY": 0.15,
+                    "frequency": 0.5,
+                    "phase": 0.0
+                }
+            ],
+            "children": [
+                {
+                    "type": "particleSystem",
+                    "transform": {
+                        "pos": [
+                            0.0,
+                            -1.0
+                        ],
+                        "scale": [
+                            1.0,
+                            1.0
+                        ]
+                    },
+                    "config": {
+                        "growSeconds": 2147483647.0,
+                        "sustainSeconds": 0.0,
+                        "fadeoutSeconds": 0.0,
+                        "maxSpawnRatePS": 1.0,
+                        "maxParticles": 1,
+                        "lifetime": 100.0,
+                        "pointSize": 0.035,
+                        "sizeIncrease": 0.0,
+                        "amplitude": 0.0,
+                        "frequency": 0.0,
+                        "color": [
+                            0.2,
+                            0.4,
+                            0.22,
+                            1.0
+                        ]
+                    },
+                    "waveFunction": {
+                        "type": "gaussian",
+                        "sigma": 0.001
+                    }
+                },
+                {
+                    "type": "particleSystem",
+                    "transform": {
+                        "pos": [
+                            0.0,
+                            -0.5
+                        ],
+                        "scale": [
+                            1.0,
+                            1.0
+                        ]
+                    },
+                    "config": {
+                        "growSeconds": 2147483647.0,
+                        "sustainSeconds": 0.0,
+                        "fadeoutSeconds": 0.0,
+                        "maxSpawnRatePS": 1.0,
+                        "maxParticles": 1,
+                        "lifetime": 100.0,
+                        "pointSize": 0.035,
+                        "sizeIncrease": 0.0,
+                        "amplitude": 0.0,
+                        "frequency": 0.0,
+                        "color": [
+                            0.2,
+                            0.4,
+                            0.22,
+                            1.0
+                        ]
+                    },
+                    "waveFunction": {
+                        "type": "gaussian",
+                        "sigma": 0.001
+                    }
+                },
+                {
+                    "type": "particleSystem",
+                    "transform": {
+                        "pos": [
+                            0.0,
+                            0.0
+                        ],
+                        "scale": [
+                            1.0,
+                            1.0
+                        ]
+                    },
+                    "config": {
+                        "growSeconds": 2147483647.0,
+                        "sustainSeconds": 0.0,
+                        "fadeoutSeconds": 0.0,
+                        "maxSpawnRatePS": 1.0,
+                        "maxParticles": 1,
+                        "lifetime": 100.0,
+                        "pointSize": 0.035,
+                        "sizeIncrease": 0.0,
+                        "amplitude": 0.0,
+                        "frequency": 0.0,
+                        "color": [
+                            0.2,
+                            0.4,
+                            0.22,
+                            1.0
+                        ]
+                    },
+                    "waveFunction": {
+                        "type": "gaussian",
+                        "sigma": 0.001
+                    }
+                },
+                {
+                    "type": "particleSystem",
+                    "transform": {
+                        "pos": [
+                            0.0,
+                            0.5
+                        ],
+                        "scale": [
+                            1.0,
+                            1.0
+                        ]
+                    },
+                    "config": {
+                        "growSeconds": 2147483647.0,
+                        "sustainSeconds": 0.0,
+                        "fadeoutSeconds": 0.0,
+                        "maxSpawnRatePS": 1.0,
+                        "maxParticles": 1,
+                        "lifetime": 100.0,
+                        "pointSize": 0.035,
+                        "sizeIncrease": 0.0,
+                        "amplitude": 0.0,
+                        "frequency": 0.0,
+                        "color": [
+                            0.2,
+                            0.4,
+                            0.22,
+                            1.0
+                        ]
+                    },
+                    "waveFunction": {
+                        "type": "gaussian",
+                        "sigma": 0.001
+                    }
+                },
+                {
+                    "type": "particleSystem",
+                    "transform": {
+                        "pos": [
+                            0.0,
+                            1.0
+                        ],
+                        "scale": [
+                            1.0,
+                            1.0
+                        ]
+                    },
+                    "config": {
+                        "growSeconds": 2147483647.0,
+                        "sustainSeconds": 0.0,
+                        "fadeoutSeconds": 0.0,
+                        "maxSpawnRatePS": 1.0,
+                        "maxParticles": 1,
+                        "lifetime": 100.0,
+                        "pointSize": 0.035,
+                        "sizeIncrease": 0.0,
+                        "amplitude": 0.0,
+                        "frequency": 0.0,
+                        "color": [
+                            0.2,
+                            0.4,
+                            0.22,
+                            1.0
+                        ]
+                    },
+                    "waveFunction": {
+                        "type": "gaussian",
+                        "sigma": 0.001
+                    }
+                }
+            ]
+        },
+        {
+            "type": "container",
+            "transform": {
+                "pos": [
+                    0.0,
+                    0.0
+                ],
+                "scale": [
+                    1.0,
+                    1.0
+                ]
+            },
+            "animations": [
+                {
+                    "type": "sin",
+                    "target": "position",
+                    "amplitudeX": 0.0,
+                    "amplitudeY": 0.15,
+                    "frequency": 0.5,
+                    "phase": 3.14159265
+                }
+            ],
+            "children": [
+                {
+                    "type": "particleSystem",
+                    "transform": {
+                        "pos": [
+                            0.0,
+                            -1.0
+                        ],
+                        "scale": [
+                            1.0,
+                            1.0
+                        ]
+                    },
+                    "config": {
+                        "growSeconds": 2147483647.0,
+                        "sustainSeconds": 0.0,
+                        "fadeoutSeconds": 0.0,
+                        "maxSpawnRatePS": 1.0,
+                        "maxParticles": 1,
+                        "lifetime": 100.0,
+                        "pointSize": 0.035,
+                        "sizeIncrease": 0.0,
+                        "amplitude": 0.0,
+                        "frequency": 0.0,
+                        "color": [
+                            0.65,
+                            0.4,
+                            0.15,
+                            1.0
+                        ]
+                    },
+                    "waveFunction": {
+                        "type": "gaussian",
+                        "sigma": 0.001
+                    }
+                },
+                {
+                    "type": "particleSystem",
+                    "transform": {
+                        "pos": [
+                            0.0,
+                            -0.5
+                        ],
+                        "scale": [
+                            1.0,
+                            1.0
+                        ]
+                    },
+                    "config": {
+                        "growSeconds": 2147483647.0,
+                        "sustainSeconds": 0.0,
+                        "fadeoutSeconds": 0.0,
+                        "maxSpawnRatePS": 1.0,
+                        "maxParticles": 1,
+                        "lifetime": 100.0,
+                        "pointSize": 0.035,
+                        "sizeIncrease": 0.0,
+                        "amplitude": 0.0,
+                        "frequency": 0.0,
+                        "color": [
+                            0.65,
+                            0.4,
+                            0.15,
+                            1.0
+                        ]
+                    },
+                    "waveFunction": {
+                        "type": "gaussian",
+                        "sigma": 0.001
+                    }
+                },
+                {
+                    "type": "particleSystem",
+                    "transform": {
+                        "pos": [
+                            0.0,
+                            0.0
+                        ],
+                        "scale": [
+                            1.0,
+                            1.0
+                        ]
+                    },
+                    "config": {
+                        "growSeconds": 2147483647.0,
+                        "sustainSeconds": 0.0,
+                        "fadeoutSeconds": 0.0,
+                        "maxSpawnRatePS": 1.0,
+                        "maxParticles": 1,
+                        "lifetime": 100.0,
+                        "pointSize": 0.035,
+                        "sizeIncrease": 0.0,
+                        "amplitude": 0.0,
+                        "frequency": 0.0,
+                        "color": [
+                            0.65,
+                            0.4,
+                            0.15,
+                            1.0
+                        ]
+                    },
+                    "waveFunction": {
+                        "type": "gaussian",
+                        "sigma": 0.001
+                    }
+                },
+                {
+                    "type": "particleSystem",
+                    "transform": {
+                        "pos": [
+                            0.0,
+                            0.5
+                        ],
+                        "scale": [
+                            1.0,
+                            1.0
+                        ]
+                    },
+                    "config": {
+                        "growSeconds": 2147483647.0,
+                        "sustainSeconds": 0.0,
+                        "fadeoutSeconds": 0.0,
+                        "maxSpawnRatePS": 1.0,
+                        "maxParticles": 1,
+                        "lifetime": 100.0,
+                        "pointSize": 0.035,
+                        "sizeIncrease": 0.0,
+                        "amplitude": 0.0,
+                        "frequency": 0.0,
+                        "color": [
+                            0.65,
+                            0.4,
+                            0.15,
+                            1.0
+                        ]
+                    },
+                    "waveFunction": {
+                        "type": "gaussian",
+                        "sigma": 0.001
+                    }
+                },
+                {
+                    "type": "particleSystem",
+                    "transform": {
+                        "pos": [
+                            0.0,
+                            1.0
+                        ],
+                        "scale": [
+                            1.0,
+                            1.0
+                        ]
+                    },
+                    "config": {
+                        "growSeconds": 2147483647.0,
+                        "sustainSeconds": 0.0,
+                        "fadeoutSeconds": 0.0,
+                        "maxSpawnRatePS": 1.0,
+                        "maxParticles": 1,
+                        "lifetime": 100.0,
+                        "pointSize": 0.035,
+                        "sizeIncrease": 0.0,
+                        "amplitude": 0.0,
+                        "frequency": 0.0,
+                        "color": [
+                            0.65,
+                            0.4,
+                            0.15,
+                            1.0
+                        ]
+                    },
+                    "waveFunction": {
+                        "type": "gaussian",
+                        "sigma": 0.001
+                    }
+                }
+            ]
+        },
+        {
+            "type": "container",
+            "transform": {
+                "pos": [
+                    0.5,
+                    0.0
+                ],
+                "scale": [
+                    1.0,
+                    1.0
+                ]
+            },
+            "animations": [
+                {
+                    "type": "sin",
+                    "target": "position",
+                    "amplitudeX": 0.0,
+                    "amplitudeY": 0.15,
+                    "frequency": 0.5,
+                    "phase": 0.0
+                }
+            ],
+            "children": [
+                {
+                    "type": "particleSystem",
+                    "transform": {
+                        "pos": [
+                            0.0,
+                            -1.0
+                        ],
+                        "scale": [
+                            1.0,
+                            1.0
+                        ]
+                    },
+                    "config": {
+                        "growSeconds": 2147483647.0,
+                        "sustainSeconds": 0.0,
+                        "fadeoutSeconds": 0.0,
+                        "maxSpawnRatePS": 1.0,
+                        "maxParticles": 1,
+                        "lifetime": 100.0,
+                        "pointSize": 0.035,
+                        "sizeIncrease": 0.0,
+                        "amplitude": 0.0,
+                        "frequency": 0.0,
+                        "color": [
+                            0.35,
+                            0.35,
+                            0.38,
+                            1.0
+                        ]
+                    },
+                    "waveFunction": {
+                        "type": "gaussian",
+                        "sigma": 0.001
+                    }
+                },
+                {
+                    "type": "particleSystem",
+                    "transform": {
+                        "pos": [
+                            0.0,
+                            -0.5
+                        ],
+                        "scale": [
+                            1.0,
+                            1.0
+                        ]
+                    },
+                    "config": {
+                        "growSeconds": 2147483647.0,
+                        "sustainSeconds": 0.0,
+                        "fadeoutSeconds": 0.0,
+                        "maxSpawnRatePS": 1.0,
+                        "maxParticles": 1,
+                        "lifetime": 100.0,
+                        "pointSize": 0.035,
+                        "sizeIncrease": 0.0,
+                        "amplitude": 0.0,
+                        "frequency": 0.0,
+                        "color": [
+                            0.35,
+                            0.35,
+                            0.38,
+                            1.0
+                        ]
+                    },
+                    "waveFunction": {
+                        "type": "gaussian",
+                        "sigma": 0.001
+                    }
+                },
+                {
+                    "type": "particleSystem",
+                    "transform": {
+                        "pos": [
+                            0.0,
+                            0.0
+                        ],
+                        "scale": [
+                            1.0,
+                            1.0
+                        ]
+                    },
+                    "config": {
+                        "growSeconds": 2147483647.0,
+                        "sustainSeconds": 0.0,
+                        "fadeoutSeconds": 0.0,
+                        "maxSpawnRatePS": 1.0,
+                        "maxParticles": 1,
+                        "lifetime": 100.0,
+                        "pointSize": 0.035,
+                        "sizeIncrease": 0.0,
+                        "amplitude": 0.0,
+                        "frequency": 0.0,
+                        "color": [
+                            0.35,
+                            0.35,
+                            0.38,
+                            1.0
+                        ]
+                    },
+                    "waveFunction": {
+                        "type": "gaussian",
+                        "sigma": 0.001
+                    }
+                },
+                {
+                    "type": "particleSystem",
+                    "transform": {
+                        "pos": [
+                            0.0,
+                            0.5
+                        ],
+                        "scale": [
+                            1.0,
+                            1.0
+                        ]
+                    },
+                    "config": {
+                        "growSeconds": 2147483647.0,
+                        "sustainSeconds": 0.0,
+                        "fadeoutSeconds": 0.0,
+                        "maxSpawnRatePS": 1.0,
+                        "maxParticles": 1,
+                        "lifetime": 100.0,
+                        "pointSize": 0.035,
+                        "sizeIncrease": 0.0,
+                        "amplitude": 0.0,
+                        "frequency": 0.0,
+                        "color": [
+                            0.35,
+                            0.35,
+                            0.38,
+                            1.0
+                        ]
+                    },
+                    "waveFunction": {
+                        "type": "gaussian",
+                        "sigma": 0.001
+                    }
+                },
+                {
+                    "type": "particleSystem",
+                    "transform": {
+                        "pos": [
+                            0.0,
+                            1.0
+                        ],
+                        "scale": [
+                            1.0,
+                            1.0
+                        ]
+                    },
+                    "config": {
+                        "growSeconds": 2147483647.0,
+                        "sustainSeconds": 0.0,
+                        "fadeoutSeconds": 0.0,
+                        "maxSpawnRatePS": 1.0,
+                        "maxParticles": 1,
+                        "lifetime": 100.0,
+                        "pointSize": 0.035,
+                        "sizeIncrease": 0.0,
+                        "amplitude": 0.0,
+                        "frequency": 0.0,
+                        "color": [
+                            0.35,
+                            0.35,
+                            0.38,
+                            1.0
+                        ]
+                    },
+                    "waveFunction": {
+                        "type": "gaussian",
+                        "sigma": 0.001
+                    }
+                }
+            ]
+        },
+        {
+            "type": "container",
+            "transform": {
+                "pos": [
+                    1.0,
+                    0.0
+                ],
+                "scale": [
+                    1.0,
+                    1.0
+                ]
+            },
+            "animations": [
+                {
+                    "type": "sin",
+                    "target": "position",
+                    "amplitudeX": 0.0,
+                    "amplitudeY": 0.15,
+                    "frequency": 0.5,
+                    "phase": 3.14159265
+                }
+            ],
+            "children": [
+                {
+                    "type": "particleSystem",
+                    "transform": {
+                        "pos": [
+                            0.0,
+                            -1.0
+                        ],
+                        "scale": [
+                            1.0,
+                            1.0
+                        ]
+                    },
+                    "config": {
+                        "growSeconds": 2147483647.0,
+                        "sustainSeconds": 0.0,
+                        "fadeoutSeconds": 0.0,
+                        "maxSpawnRatePS": 1.0,
+                        "maxParticles": 1,
+                        "lifetime": 100.0,
+                        "pointSize": 0.035,
+                        "sizeIncrease": 0.0,
+                        "amplitude": 0.0,
+                        "frequency": 0.0,
+                        "color": [
+                            0.2,
+                            0.3,
+                            0.45,
+                            1.0
+                        ]
+                    },
+                    "waveFunction": {
+                        "type": "gaussian",
+                        "sigma": 0.001
+                    }
+                },
+                {
+                    "type": "particleSystem",
+                    "transform": {
+                        "pos": [
+                            0.0,
+                            -0.5
+                        ],
+                        "scale": [
+                            1.0,
+                            1.0
+                        ]
+                    },
+                    "config": {
+                        "growSeconds": 2147483647.0,
+                        "sustainSeconds": 0.0,
+                        "fadeoutSeconds": 0.0,
+                        "maxSpawnRatePS": 1.0,
+                        "maxParticles": 1,
+                        "lifetime": 100.0,
+                        "pointSize": 0.035,
+                        "sizeIncrease": 0.0,
+                        "amplitude": 0.0,
+                        "frequency": 0.0,
+                        "color": [
+                            0.2,
+                            0.3,
+                            0.45,
+                            1.0
+                        ]
+                    },
+                    "waveFunction": {
+                        "type": "gaussian",
+                        "sigma": 0.001
+                    }
+                },
+                {
+                    "type": "particleSystem",
+                    "transform": {
+                        "pos": [
+                            0.0,
+                            0.0
+                        ],
+                        "scale": [
+                            1.0,
+                            1.0
+                        ]
+                    },
+                    "config": {
+                        "growSeconds": 2147483647.0,
+                        "sustainSeconds": 0.0,
+                        "fadeoutSeconds": 0.0,
+                        "maxSpawnRatePS": 1.0,
+                        "maxParticles": 1,
+                        "lifetime": 100.0,
+                        "pointSize": 0.035,
+                        "sizeIncrease": 0.0,
+                        "amplitude": 0.0,
+                        "frequency": 0.0,
+                        "color": [
+                            0.2,
+                            0.3,
+                            0.45,
+                            1.0
+                        ]
+                    },
+                    "waveFunction": {
+                        "type": "gaussian",
+                        "sigma": 0.001
+                    }
+                },
+                {
+                    "type": "particleSystem",
+                    "transform": {
+                        "pos": [
+                            0.0,
+                            0.5
+                        ],
+                        "scale": [
+                            1.0,
+                            1.0
+                        ]
+                    },
+                    "config": {
+                        "growSeconds": 2147483647.0,
+                        "sustainSeconds": 0.0,
+                        "fadeoutSeconds": 0.0,
+                        "maxSpawnRatePS": 1.0,
+                        "maxParticles": 1,
+                        "lifetime": 100.0,
+                        "pointSize": 0.035,
+                        "sizeIncrease": 0.0,
+                        "amplitude": 0.0,
+                        "frequency": 0.0,
+                        "color": [
+                            0.2,
+                            0.3,
+                            0.45,
+                            1.0
+                        ]
+                    },
+                    "waveFunction": {
+                        "type": "gaussian",
+                        "sigma": 0.001
+                    }
+                },
+                {
+                    "type": "particleSystem",
+                    "transform": {
+                        "pos": [
+                            0.0,
+                            1.0
+                        ],
+                        "scale": [
+                            1.0,
+                            1.0
+                        ]
+                    },
+                    "config": {
+                        "growSeconds": 2147483647.0,
+                        "sustainSeconds": 0.0,
+                        "fadeoutSeconds": 0.0,
+                        "maxSpawnRatePS": 1.0,
+                        "maxParticles": 1,
+                        "lifetime": 100.0,
+                        "pointSize": 0.035,
+                        "sizeIncrease": 0.0,
+                        "amplitude": 0.0,
+                        "frequency": 0.0,
+                        "color": [
+                            0.2,
+                            0.3,
+                            0.45,
+                            1.0
+                        ]
+                    },
+                    "waveFunction": {
+                        "type": "gaussian",
+                        "sigma": 0.001
+                    }
+                }
+            ]
+        },
+        {
+            "type": "container",
+            "transform": {
+                "pos": [
+                    1.5,
+                    0.0
+                ],
+                "scale": [
+                    1.0,
+                    1.0
+                ]
+            },
+            "animations": [
+                {
+                    "type": "sin",
+                    "target": "position",
+                    "amplitudeX": 0.0,
+                    "amplitudeY": 0.15,
+                    "frequency": 0.5,
+                    "phase": 0.0
+                }
+            ],
+            "children": [
+                {
+                    "type": "particleSystem",
+                    "transform": {
+                        "pos": [
+                            0.0,
+                            -1.0
+                        ],
+                        "scale": [
+                            1.0,
+                            1.0
+                        ]
+                    },
+                    "config": {
+                        "growSeconds": 2147483647.0,
+                        "sustainSeconds": 0.0,
+                        "fadeoutSeconds": 0.0,
+                        "maxSpawnRatePS": 1.0,
+                        "maxParticles": 1,
+                        "lifetime": 100.0,
+                        "pointSize": 0.035,
+                        "sizeIncrease": 0.0,
+                        "amplitude": 0.0,
+                        "frequency": 0.0,
+                        "color": [
+                            0.2,
+                            0.4,
+                            0.22,
+                            1.0
+                        ]
+                    },
+                    "waveFunction": {
+                        "type": "gaussian",
+                        "sigma": 0.001
+                    }
+                },
+                {
+                    "type": "particleSystem",
+                    "transform": {
+                        "pos": [
+                            0.0,
+                            -0.5
+                        ],
+                        "scale": [
+                            1.0,
+                            1.0
+                        ]
+                    },
+                    "config": {
+                        "growSeconds": 2147483647.0,
+                        "sustainSeconds": 0.0,
+                        "fadeoutSeconds": 0.0,
+                        "maxSpawnRatePS": 1.0,
+                        "maxParticles": 1,
+                        "lifetime": 100.0,
+                        "pointSize": 0.035,
+                        "sizeIncrease": 0.0,
+                        "amplitude": 0.0,
+                        "frequency": 0.0,
+                        "color": [
+                            0.2,
+                            0.4,
+                            0.22,
+                            1.0
+                        ]
+                    },
+                    "waveFunction": {
+                        "type": "gaussian",
+                        "sigma": 0.001
+                    }
+                },
+                {
+                    "type": "particleSystem",
+                    "transform": {
+                        "pos": [
+                            0.0,
+                            0.0
+                        ],
+                        "scale": [
+                            1.0,
+                            1.0
+                        ]
+                    },
+                    "config": {
+                        "growSeconds": 2147483647.0,
+                        "sustainSeconds": 0.0,
+                        "fadeoutSeconds": 0.0,
+                        "maxSpawnRatePS": 1.0,
+                        "maxParticles": 1,
+                        "lifetime": 100.0,
+                        "pointSize": 0.035,
+                        "sizeIncrease": 0.0,
+                        "amplitude": 0.0,
+                        "frequency": 0.0,
+                        "color": [
+                            0.2,
+                            0.4,
+                            0.22,
+                            1.0
+                        ]
+                    },
+                    "waveFunction": {
+                        "type": "gaussian",
+                        "sigma": 0.001
+                    }
+                },
+                {
+                    "type": "particleSystem",
+                    "transform": {
+                        "pos": [
+                            0.0,
+                            0.5
+                        ],
+                        "scale": [
+                            1.0,
+                            1.0
+                        ]
+                    },
+                    "config": {
+                        "growSeconds": 2147483647.0,
+                        "sustainSeconds": 0.0,
+                        "fadeoutSeconds": 0.0,
+                        "maxSpawnRatePS": 1.0,
+                        "maxParticles": 1,
+                        "lifetime": 100.0,
+                        "pointSize": 0.035,
+                        "sizeIncrease": 0.0,
+                        "amplitude": 0.0,
+                        "frequency": 0.0,
+                        "color": [
+                            0.2,
+                            0.4,
+                            0.22,
+                            1.0
+                        ]
+                    },
+                    "waveFunction": {
+                        "type": "gaussian",
+                        "sigma": 0.001
+                    }
+                },
+                {
+                    "type": "particleSystem",
+                    "transform": {
+                        "pos": [
+                            0.0,
+                            1.0
+                        ],
+                        "scale": [
+                            1.0,
+                            1.0
+                        ]
+                    },
+                    "config": {
+                        "growSeconds": 2147483647.0,
+                        "sustainSeconds": 0.0,
+                        "fadeoutSeconds": 0.0,
+                        "maxSpawnRatePS": 1.0,
+                        "maxParticles": 1,
+                        "lifetime": 100.0,
+                        "pointSize": 0.035,
+                        "sizeIncrease": 0.0,
+                        "amplitude": 0.0,
+                        "frequency": 0.0,
+                        "color": [
+                            0.2,
+                            0.4,
+                            0.22,
+                            1.0
+                        ]
+                    },
+                    "waveFunction": {
+                        "type": "gaussian",
+                        "sigma": 0.001
+                    }
+                }
+            ]
+        },
+        {
+            "type": "container",
+            "transform": {
+                "pos": [
+                    2.0,
+                    0.0
+                ],
+                "scale": [
+                    1.0,
+                    1.0
+                ]
+            },
+            "animations": [
+                {
+                    "type": "sin",
+                    "target": "position",
+                    "amplitudeX": 0.0,
+                    "amplitudeY": 0.15,
+                    "frequency": 0.5,
+                    "phase": 3.14159265
+                }
+            ],
+            "children": [
+                {
+                    "type": "particleSystem",
+                    "transform": {
+                        "pos": [
+                            0.0,
+                            -1.0
+                        ],
+                        "scale": [
+                            1.0,
+                            1.0
+                        ]
+                    },
+                    "config": {
+                        "growSeconds": 2147483647.0,
+                        "sustainSeconds": 0.0,
+                        "fadeoutSeconds": 0.0,
+                        "maxSpawnRatePS": 1.0,
+                        "maxParticles": 1,
+                        "lifetime": 100.0,
+                        "pointSize": 0.035,
+                        "sizeIncrease": 0.0,
+                        "amplitude": 0.0,
+                        "frequency": 0.0,
+                        "color": [
+                            0.65,
+                            0.4,
+                            0.15,
+                            1.0
+                        ]
+                    },
+                    "waveFunction": {
+                        "type": "gaussian",
+                        "sigma": 0.001
+                    }
+                },
+                {
+                    "type": "particleSystem",
+                    "transform": {
+                        "pos": [
+                            0.0,
+                            -0.5
+                        ],
+                        "scale": [
+                            1.0,
+                            1.0
+                        ]
+                    },
+                    "config": {
+                        "growSeconds": 2147483647.0,
+                        "sustainSeconds": 0.0,
+                        "fadeoutSeconds": 0.0,
+                        "maxSpawnRatePS": 1.0,
+                        "maxParticles": 1,
+                        "lifetime": 100.0,
+                        "pointSize": 0.035,
+                        "sizeIncrease": 0.0,
+                        "amplitude": 0.0,
+                        "frequency": 0.0,
+                        "color": [
+                            0.65,
+                            0.4,
+                            0.15,
+                            1.0
+                        ]
+                    },
+                    "waveFunction": {
+                        "type": "gaussian",
+                        "sigma": 0.001
+                    }
+                },
+                {
+                    "type": "particleSystem",
+                    "transform": {
+                        "pos": [
+                            0.0,
+                            0.0
+                        ],
+                        "scale": [
+                            1.0,
+                            1.0
+                        ]
+                    },
+                    "config": {
+                        "growSeconds": 2147483647.0,
+                        "sustainSeconds": 0.0,
+                        "fadeoutSeconds": 0.0,
+                        "maxSpawnRatePS": 1.0,
+                        "maxParticles": 1,
+                        "lifetime": 100.0,
+                        "pointSize": 0.035,
+                        "sizeIncrease": 0.0,
+                        "amplitude": 0.0,
+                        "frequency": 0.0,
+                        "color": [
+                            0.65,
+                            0.4,
+                            0.15,
+                            1.0
+                        ]
+                    },
+                    "waveFunction": {
+                        "type": "gaussian",
+                        "sigma": 0.001
+                    }
+                },
+                {
+                    "type": "particleSystem",
+                    "transform": {
+                        "pos": [
+                            0.0,
+                            0.5
+                        ],
+                        "scale": [
+                            1.0,
+                            1.0
+                        ]
+                    },
+                    "config": {
+                        "growSeconds": 2147483647.0,
+                        "sustainSeconds": 0.0,
+                        "fadeoutSeconds": 0.0,
+                        "maxSpawnRatePS": 1.0,
+                        "maxParticles": 1,
+                        "lifetime": 100.0,
+                        "pointSize": 0.035,
+                        "sizeIncrease": 0.0,
+                        "amplitude": 0.0,
+                        "frequency": 0.0,
+                        "color": [
+                            0.65,
+                            0.4,
+                            0.15,
+                            1.0
+                        ]
+                    },
+                    "waveFunction": {
+                        "type": "gaussian",
+                        "sigma": 0.001
+                    }
+                },
+                {
+                    "type": "particleSystem",
+                    "transform": {
+                        "pos": [
+                            0.0,
+                            1.0
+                        ],
+                        "scale": [
+                            1.0,
+                            1.0
+                        ]
+                    },
+                    "config": {
+                        "growSeconds": 2147483647.0,
+                        "sustainSeconds": 0.0,
+                        "fadeoutSeconds": 0.0,
+                        "maxSpawnRatePS": 1.0,
+                        "maxParticles": 1,
+                        "lifetime": 100.0,
+                        "pointSize": 0.035,
+                        "sizeIncrease": 0.0,
+                        "amplitude": 0.0,
+                        "frequency": 0.0,
+                        "color": [
+                            0.65,
+                            0.4,
+                            0.15,
+                            1.0
+                        ]
+                    },
+                    "waveFunction": {
+                        "type": "gaussian",
+                        "sigma": 0.001
+                    }
+                }
+            ]
+        }
+    ]
+}

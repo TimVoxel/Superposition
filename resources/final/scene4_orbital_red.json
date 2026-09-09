@@ -1,0 +1,42 @@
+{
+    "name": "Scene 4 - orbital red (n1 l0 m0)",
+    "durationSeconds": 305.0,
+    "objects": [
+        {
+            "type": "particleSystem",
+            "transform": {
+                "pos": [
+                    0.0,
+                    0.0
+                ],
+                "scale": [
+                    1.5,
+                    1.5
+                ]
+            },
+            "config": {
+                "growSeconds": 100.0,
+                "sustainSeconds": 200.0,
+                "fadeoutSeconds": 5.0,
+                "maxSpawnRatePS": 250.0,
+                "maxParticles": 500,
+                "lifetime": 5.0,
+                "pointSize": 0.01,
+                "sizeIncrease": 0.025,
+                "amplitude": 0.0003,
+                "frequency": 50.0,
+                "color": [
+                    0.8,
+                    0.2,
+                    0.2,
+                    1.0
+                ]
+            },
+            "waveFunction": {
+                "type": "hydrogen",
+                "orbital": "resources/orbitals/hydrogen_n2_l1_m0.bin",
+                "timeStep": 0.01
+            }
+        }
+    ]
+}

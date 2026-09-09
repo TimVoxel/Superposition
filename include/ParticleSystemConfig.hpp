@@ -8,8 +8,8 @@
 
 struct ParticleSystemConfig
 {
-    float durationSeconds;
-    float fadeoutSeconds;
+    float growSeconds;
+    float sustainSeconds;
     float maxSpawnRatePS;
     int maxParticles;
     float lifetime;

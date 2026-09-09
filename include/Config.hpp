@@ -7,7 +7,6 @@
 struct Config
 {
     VideoWriterConfig video;
-    int durationSeconds;
     Color clearColor;
 };
 

@@ -1,21 +1,35 @@
 {
     "name": "Scene 6 - eye",
+    "durationSeconds": 55.0,
     "objects": [
         {
             "type": "container",
             "transform": {
-                "pos": [0.0, 0.0],
-                "scale": [1.0, 1.0]
+                "pos": [
+                    0.0,
+                    0.0
+                ],
+                "scale": [
+                    1.0,
+                    1.0
+                ]
             },
             "children": [
                 {
                     "type": "particleSystem",
                     "transform": {
-                        "pos": [0.0, 0.0],
-                        "scale": [1.5, 0.8]
+                        "pos": [
+                            0.0,
+                            0.0
+                        ],
+                        "scale": [
+                            1.5,
+                            0.8
+                        ]
                     },
                     "config": {
-                        "durationSeconds": 50.0,
+                        "growSeconds": 50.0,
+                        "sustainSeconds": 0.0,
                         "fadeoutSeconds": 0.0,
                         "maxSpawnRatePS": 250.0,
                         "maxParticles": 1000,
@@ -24,7 +38,12 @@
                         "sizeIncrease": 0.0,
                         "amplitude": 0.0,
                         "frequency": 0.0,
-                        "color": [1.0, 1.0, 1.0, 1.0]
+                        "color": [
+                            1.0,
+                            1.0,
+                            1.0,
+                            1.0
+                        ]
                     },
                     "waveFunction": {
                         "type": "gaussian",
@@ -34,8 +53,14 @@
                 {
                     "type": "particleSystem",
                     "transform": {
-                        "pos": [0.0, 0.0],
-                        "scale": [1.0, 1.0]
+                        "pos": [
+                            0.0,
+                            0.0
+                        ],
+                        "scale": [
+                            1.0,
+                            1.0
+                        ]
                     },
                     "animations": [
                         {
@@ -48,7 +73,8 @@
                         }
                     ],
                     "config": {
-                        "durationSeconds": 50.0,
+                        "growSeconds": 50.0,
+                        "sustainSeconds": 0.0,
                         "fadeoutSeconds": 0.0,
                         "maxSpawnRatePS": 250.0,
                         "maxParticles": 500,
@@ -57,7 +83,12 @@
                         "sizeIncrease": 0.0,
                         "amplitude": 0.0,
                         "frequency": 0.0,
-                        "color": [0.0, 0.0, 0.0, 1.0]
+                        "color": [
+                            0.0,
+                            0.0,
+                            0.0,
+                            1.0
+                        ]
                     },
                     "waveFunction": {
                         "type": "gaussian",
@@ -67,8 +98,14 @@
                 {
                     "type": "particleSystem",
                     "transform": {
-                        "pos": [-0.1, 0.2],
-                        "scale": [1.0, 1.0]
+                        "pos": [
+                            -0.1,
+                            0.2
+                        ],
+                        "scale": [
+                            1.0,
+                            1.0
+                        ]
                     },
                     "animations": [
                         {
@@ -81,7 +118,8 @@
                         }
                     ],
                     "config": {
-                        "durationSeconds": 50.0,
+                        "growSeconds": 50.0,
+                        "sustainSeconds": 0.0,
                         "fadeoutSeconds": 0.0,
                         "maxSpawnRatePS": 250.0,
                         "maxParticles": 250,
@@ -90,7 +128,12 @@
                         "sizeIncrease": 0.0,
                         "amplitude": 0.0,
                         "frequency": 0.0,
-                        "color": [1.0, 1.0, 1.0, 1.0]
+                        "color": [
+                            1.0,
+                            1.0,
+                            1.0,
+                            1.0
+                        ]
                     },
                     "waveFunction": {
                         "type": "gaussian",
@@ -100,8 +143,14 @@
                 {
                     "type": "particleSystem",
                     "transform": {
-                        "pos": [0.15, -0.15],
-                        "scale": [1.0, 1.0]
+                        "pos": [
+                            0.15,
+                            -0.15
+                        ],
+                        "scale": [
+                            1.0,
+                            1.0
+                        ]
                     },
                     "animations": [
                         {
@@ -114,7 +163,8 @@
                         }
                     ],
                     "config": {
-                        "durationSeconds": 50.0,
+                        "growSeconds": 50.0,
+                        "sustainSeconds": 0.0,
                         "fadeoutSeconds": 0.0,
                         "maxSpawnRatePS": 250.0,
                         "maxParticles": 100,
@@ -123,7 +173,12 @@
                         "sizeIncrease": 0.0,
                         "amplitude": 0.0,
                         "frequency": 0.0,
-                        "color": [1.0, 1.0, 1.0, 1.0]
+                        "color": [
+                            1.0,
+                            1.0,
+                            1.0,
+                            1.0
+                        ]
                     },
                     "waveFunction": {
                         "type": "gaussian",
